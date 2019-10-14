@@ -1,0 +1,471 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+
+<!-- Copyright (c) 2019 Joshua Davidson (Octal450) -->
+
+<PropertyList>
+	
+	<filter>
+		<name>Groundspeed Meters Per Second</name>
+		<type>gain</type>
+		<gain>0.5144444444444</gain>
+		<input>/velocities/groundspeed-kt</input>
+		<output>/velocities/groundspeed-mps</output>
+		<min>0</min>
+		<max>1000</max>
+	</filter>
+	
+	<predict-simple>
+		<name>Groundspeed Meters Per Second Ahead</name>
+		<debug>false</debug>
+		<input>/velocities/groundspeed-mps</input>
+		<output>/velocities/groundspeed-mps-ahead</output>
+		<seconds>1.5</seconds>
+		<filter-gain>0.0</filter-gain>
+	</predict-simple>
+	
+	<filter>
+		<name>Gear AGL Altitude FT</name>
+		<type>gain</type>
+		<gain>1.0</gain>
+		<input>
+			<expression>
+				<dif>
+					<property>/position/altitude-agl-ft</property>
+					<value>17.283</value>
+				</dif>
+			</expression>
+		</input>
+		<output>/position/gear-agl-ft</output>
+	</filter>
+	
+	<filter>
+		<name>Gear AGL Altitude M</name>
+		<type>gain</type>
+		<gain>1.0</gain>
+		<input>
+			<expression>
+				<product>
+					<property>/position/gear-agl-ft</property>
+					<value>0.3048</value>
+				</product>
+			</expression>
+		</input>
+		<output>/position/gear-agl-m</output>
+	</filter>
+
+	<predict-simple>
+		<name>Gear AGL Altitude</name>
+		<debug>false</debug>
+		<input>/position/gear-agl-ft</input>
+		<output>/position/gear-agl-ft-2-sec</output>
+		<seconds>2.0</seconds>
+		<filter-gain>0.0</filter-gain>
+	</predict-simple>
+	
+	<filter>
+		<name>Gear 1 Tilt</name>
+		<type>gain</type>
+		<gain>1.0</gain>
+		<input>
+			<condition>
+				<equals>
+					<property>/gear/gear[1]/wow</property>
+					<value>1</value>
+				</equals>
+			</condition>
+			<property>/orientation/pitch-deg</property>
+		</input>
+		<input>0</input>
+		<output>/gear/gear[1]/angle-deg</output>
+		<min>-20</min>
+		<max>20</max>
+	</filter>
+	
+	<filter>
+		<name>Gear 2 Tilt</name>
+		<type>gain</type>
+		<gain>1.0</gain>
+		<input>
+			<condition>
+				<equals>
+					<property>/gear/gear[2]/wow</property>
+					<value>1</value>
+				</equals>
+			</condition>
+			<property>/orientation/pitch-deg</property>
+		</input>
+		<input>0</input>
+		<output>/gear/gear[2]/angle-deg</output>
+		<min>-20</min>
+		<max>20</max>
+	</filter>
+	
+	<filter>
+		<name>Minimums Minus 50</name>
+		<type>gain</type>
+		<gain>1.0</gain>
+		<update-interval-secs type="double">0.1</update-interval-secs>
+		<input> 
+			<expression>
+				<difference>
+					<property>/controls/switches/minimums</property>
+					<value>50</value>
+				</difference>
+			</expression>
+		</input>
+		<output>/controls/switches/minimums-minus-50</output>
+	</filter>
+	
+	<filter>
+		<name>Minimums Plus 50</name>
+		<type>gain</type>
+		<gain>1.0</gain>
+		<update-interval-secs type="double">0.1</update-interval-secs>
+		<input>
+			<expression>
+				<sum>
+					<property>/controls/switches/minimums</property>
+					<value>50</value>
+				</sum>
+			</expression>
+		</input>
+		<output>/controls/switches/minimums-plus-50</output>
+	</filter>
+	
+	<filter>
+		<name>Minimums Plus 100</name>
+		<type>gain</type>
+		<gain>1.0</gain>
+		<update-interval-secs type="double">0.1</update-interval-secs>
+		<input>
+			<expression>
+				<sum>
+					<property>/controls/switches/minimums</property>
+					<value>100</value>
+				</sum>
+			</expression>
+		</input>
+		<output>/controls/switches/minimums-plus-100</output>
+	</filter>
+
+	<filter>
+		<name>Wingflex</name>
+		<type>exponential</type>
+		<enable>
+			<condition>
+				<equals>
+					<property>/controls/flight/wingflex-enable</property>
+					<value>1</value>
+				</equals>
+			</condition>
+		</enable>
+		<input>/fdm/jsbsim/aero/coefficient/CLalpha</input>
+		<output>/controls/flight/wingflex</output>
+		<filter-time>0.04</filter-time>
+	</filter>
+	
+	<filter>
+		<name>V/S PFD</name>
+		<type>gain</type>
+		<gain>1.0</gain>
+		<update-interval-secs type="double">0.05</update-interval-secs>
+		<input>
+			<expression>
+				<div>
+					<floor>
+						<div>
+							<sum>
+								<abs><property>/it-autoflight/internal/vert-speed-fpm</property></abs>
+								<value>50</value>
+							</sum>
+							<value>100</value>
+						</div>
+					</floor>
+					<value>10</value>
+				</div>
+			</expression>
+		</input>
+		<output>/it-autoflight/internal/vert-speed-fpm-pfd</output>
+		<min>0</min>
+		<max>9.9</max>
+	</filter>
+	
+	<filter>
+		<name>OAT Thrust Scale</name>
+		<type>gain</type>
+		<gain>1.0</gain>
+		<update-interval-secs type="double">0.05</update-interval-secs>
+		<input> 
+			<expression>
+				<table>
+					<property>/environment/temperature-degc</property>
+					<entry><ind> 70</ind><dep>0.910</dep></entry>
+					<entry><ind> 40</ind><dep>0.931</dep></entry>
+					<entry><ind>-60</ind><dep>1.000</dep></entry>
+				</table>
+			</expression>
+		</input>
+		<output>/controls/engines/throttle-scale</output>
+	</filter>
+	
+	<!--filter>
+		<name>FLX Thrust Scale</name>
+		<type>gain</type>
+		<gain>1.0</gain>
+		<update-interval-secs type="double">0.05</update-interval-secs>
+		<input> 
+			<expression>
+				<table>
+					<property>/FMC/internal/flex</property>
+					<entry><ind> 70</ind><dep>0.910</dep></entry>
+					<entry><ind> 40</ind><dep>0.931</dep></entry>
+					<entry><ind>-60</ind><dep>1.000</dep></entry>
+				</table>
+			</expression>
+		</input>
+		<output>/controls/engines/flx-scale</output>
+	</filter-->
+	
+	<filter>
+		<name>FF 1</name>
+		<type>exponential</type>
+		<input>/engines/engine[0]/fuel-flow_pph</input>
+		<output>/engines/engine[0]/fuel-flow_actual</output>
+		<filter-time>0.32</filter-time>
+	</filter>
+	
+	<filter>
+		<name>FF 2</name>
+		<type>exponential</type>
+		<input>/engines/engine[1]/fuel-flow_pph</input>
+		<output>/engines/engine[1]/fuel-flow_actual</output>
+		<filter-time>0.32</filter-time>
+	</filter>
+	
+	<filter>
+		<name>FF 3</name>
+		<type>exponential</type>
+		<input>/engines/engine[2]/fuel-flow_pph</input>
+		<output>/engines/engine[2]/fuel-flow_actual</output>
+		<filter-time>0.32</filter-time>
+	</filter>
+	
+	<filter>
+		<name>IAS/Mach</name>
+		<type>gain</type>
+		<gain>1.0</gain>
+		<update-interval-secs type="double">0.05</update-interval-secs>
+		<input>
+			<condition>
+				<equals>
+					<property>/it-autoflight/input/kts-mach</property>
+					<value>0</value>
+				</equals>
+			</condition>
+			<property>/it-autoflight/input/spd-kts</property>
+		</input>
+		<input>
+			<condition>
+				<equals>
+					<property>/it-autoflight/input/kts-mach</property>
+					<value>1</value>
+				</equals>
+			</condition>
+			<property>/it-autoflight/input/spd-mach</property>
+		</input>
+		<output>/it-autoflight/input/spd-common</output>
+	</filter>
+	
+	<filter>
+		<name>Gear Lever</name>
+		<type>noise-spike</type>
+		<update-interval-secs type="double">0.02</update-interval-secs>
+		<input>/controls/gear/gear-down</input>
+		<output>controls/gear/gearlever/position-norm</output>
+		<max-rate-of-change>1.5</max-rate-of-change>
+	</filter>
+	
+	<filter>
+		<name>TAS</name>
+		<type>gain</type>
+		<gain>1.0</gain>
+		<input>/instrumentation/airspeed-indicator/true-speed-kt</input>
+		<output>/velocities/TAS</output>
+	</filter>
+	
+	<filter>
+		<name>LBtoKG</name>
+		<type>gain</type>
+		<gain>1.0</gain>
+		<update-interval-secs type="double">0.05</update-interval-secs>
+		<input>
+			<product>
+				<property>fdm/jsbsim/inertia/weight-lbs</property>
+				<value>0.45359237</value>
+			</product>
+		</input>
+		<output>fdm/jsbsim/inertia/weight-kg</output>
+	</filter>
+	
+	<filter>
+		<name>ELEV FEEL Slew Knob</name>
+		<type>gain</type>
+		<gain>1.0</gain>
+		<update-interval-secs type="double">0.075</update-interval-secs>
+		<feedback-if-disabled>true</feedback-if-disabled>
+		<initialize-to>output</initialize-to>
+		<enable>
+			<condition>
+				<and>
+					<equals>
+						<property>/fdm/jsbsim/fcc/lsas/elevator-feel-power</property>
+						<value>1</value>
+					</equals>
+					<not-equals>
+						<property>/fdm/jsbsim/fcc/lsas/elevator-feel-auto</property>
+						<value>1</value>
+					</not-equals>
+				</and>
+			</condition>
+		</enable>
+		<input>
+			<expression>
+				<sum>
+					<property>/fdm/jsbsim/fcc/lsas/elevator-feel-speed</property>
+					<property>/controls/fctl/lsas-feel-knob</property>
+				</sum>
+			</expression>
+		</input>
+		<output>/fdm/jsbsim/fcc/lsas/elevator-feel-speed</output>
+		<min>120</min>
+		<max>300</max>
+	</filter>
+	
+	<filter>
+		<name>Throttle 1 Lever</name>
+		<type>gain</type>
+		<gain>1.0</gain>
+		<input>
+			<condition>
+				<equals>
+					<property>/controls/engines/engine[0]/reverser</property>
+					<value>0</value>
+				</equals>
+			</condition>
+			<property>/controls/engines/engine[0]/throttle</property>
+		</input>
+		<input>
+			<condition>
+				<equals>
+					<property>/controls/engines/engine[0]/reverser</property>
+					<value>1</value>
+				</equals>
+			</condition>
+			<value>0</value>
+		</input>
+		<output>
+			<property>/controls/engines/engine[0]/throttle-lever</property>
+		</output>
+	</filter>
+	
+	<filter>
+		<name>Throttle 2 Lever</name>
+		<type>gain</type>
+		<gain>1.0</gain>
+		<input>
+			<condition>
+				<equals>
+					<property>/controls/engines/engine[1]/reverser</property>
+					<value>0</value>
+				</equals>
+			</condition>
+			<property>/controls/engines/engine[1]/throttle</property>
+		</input>
+		<input>
+			<condition>
+				<equals>
+					<property>/controls/engines/engine[1]/reverser</property>
+					<value>1</value>
+				</equals>
+			</condition>
+			<value>0</value>
+		</input>
+		<output>
+			<property>/controls/engines/engine[1]/throttle-lever</property>
+		</output>
+	</filter>
+	
+	<filter>
+		<name>Throttle 3 Lever</name>
+		<type>gain</type>
+		<gain>1.0</gain>
+		<input>
+			<condition>
+				<equals>
+					<property>/controls/engines/engine[2]/reverser</property>
+					<value>0</value>
+				</equals>
+			</condition>
+			<property>/controls/engines/engine[2]/throttle</property>
+		</input>
+		<input>
+			<condition>
+				<equals>
+					<property>/controls/engines/engine[2]/reverser</property>
+					<value>1</value>
+				</equals>
+			</condition>
+			<value>0</value>
+		</input>
+		<output>
+			<property>/controls/engines/engine[2]/throttle-lever</property>
+		</output>
+	</filter>
+
+	<!-- Braking -->
+	
+	<filter>
+		<name>Autobrake Decel Error</name>
+		<type>gain</type>
+		<gain>1.0</gain>
+		<input>
+			<expression>
+				<dif>
+					<property>/velocities/groundspeed-mps</property>
+					<property>/velocities/groundspeed-mps-ahead</property>
+				</dif>
+			</expression>
+		</input>
+		<output>/controls/autobrake/decel-error</output>
+	</filter>
+	
+	<pi-simple-controller>
+		<name>IT-CONTROLLER: AUTOBRAKE DECEL</name>
+		<debug>false</debug>
+		<enable>
+			<condition>
+				<equals>
+					<property>/controls/autobrake/active</property>
+					<value>1</value>
+				</equals>
+			</condition>
+		</enable>
+		<input>
+			<property>/controls/autobrake/decel-error</property>
+		</input>
+		<reference>
+			<property>/controls/autobrake/decel-rate</property>
+		</reference>
+		<output>
+			<property>/controls/autobrake/brake-left</property>
+			<property>/controls/autobrake/brake-right</property>
+		</output>
+		<config>
+			<Kp>0.45</Kp>
+			<Ki>0.25</Ki>
+			<min>0.0</min>
+			<max>1.0</max>
+		</config>
+	</pi-simple-controller>
+
+</PropertyList>

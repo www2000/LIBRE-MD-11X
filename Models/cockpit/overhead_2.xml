@@ -1,0 +1,139 @@
+﻿<?xml version="1.0" encoding="UTF-8" ?>
+
+<!-- Copyright (c) 2019 Joshua Davidson (Octal450) -->
+
+<PropertyList>
+	
+	<path>overhead_2.ac</path>
+	
+	<animation>
+		<type>shader</type>
+		<shader>chrome</shader>
+		<texture>chrome_cockpit.png</texture>
+		<object-name>oh.glass.2</object-name>
+	</animation>
+	
+	<animation>
+		<type>shader</type>
+		<shader>chrome</shader>
+		<texture>chrome_cockpit_red.png</texture>
+		<object-name>engine.fire.glass</object-name>
+	</animation>
+	
+	<animation>
+		<name>Integ Panel lighting</name>
+		<type>material</type>
+		<object-name>overhead.text.2</object-name>
+		<emission>
+			<red>1.0</red>
+			<green>0.85</green>
+			<blue>0.6</blue>
+			<factor-prop>controls/lighting/overhead-integ-norm</factor-prop>
+		</emission>
+	</animation>
+	
+	<!-- No button lights without power! -->
+	<animation>
+		<type>select</type>
+		<object-name>APUStartStop.on</object-name>
+		<object-name>APUStartStop.off</object-name>
+		<condition>
+			<or>
+				<greater-than-equals>
+					<property>systems/electrical/bus/dc-bat</property>
+					<value>25</value>
+				</greater-than-equals>
+				<greater-than-equals>
+					<property>systems/electrical/bus/dc-1</property>
+					<value>25</value>
+				</greater-than-equals>
+				<greater-than-equals>
+					<property>systems/electrical/bus/dc-2</property>
+					<value>25</value>
+				</greater-than-equals>
+				<greater-than-equals>
+					<property>systems/electrical/bus/dc-3</property>
+					<value>25</value>
+				</greater-than-equals>
+			</or>
+		</condition>
+	</animation>
+	
+	<animation>
+		<type>pick</type>
+		<object-name>APUStartStop</object-name>
+		<object-name>APUStartStop.on</object-name>
+		<object-name>APUStartStop.off</object-name>
+		<action>
+		    <button>0</button>
+		    <repeatable>false</repeatable>
+		    <binding>
+				<condition>
+					<or>
+						<greater-than-equals>
+							<property>systems/electrical/bus/dc-bat</property>
+							<value>25</value>
+						</greater-than-equals>
+						<greater-than-equals>
+							<property>systems/electrical/bus/dc-1</property>
+							<value>25</value>
+						</greater-than-equals>
+						<greater-than-equals>
+							<property>systems/electrical/bus/dc-2</property>
+							<value>25</value>
+						</greater-than-equals>
+						<greater-than-equals>
+							<property>systems/electrical/bus/dc-3</property>
+							<value>25</value>
+						</greater-than-equals>
+					</or>
+				</condition>
+				<command>property-toggle</command>
+				<property>controls/apu/start</property>
+		    </binding>
+			<binding>
+				<command>nasal</command>
+				<script>setprop("/sim/sounde/oh-btn", 1);</script>
+			</binding>
+		</action>
+	</animation>
+	<animation>
+		<type>select</type>
+		<object-name>APUStartStop.on</object-name>
+		<condition>
+			<or>
+				<equals>
+					<property>controls/apu/on-light</property>
+					<value>1</value>
+				</equals>
+				<equals>
+					<property>controls/switches/annun-test</property>
+					<value>1</value>
+				</equals>
+			</or>
+		</condition>
+	</animation>
+	<animation>
+		<type>select</type>
+		<object-name>APUStartStop.off</object-name>
+		<condition>
+			<or>
+				<and>
+					<equals>
+						<property>controls/apu/start</property>
+						<value>0</value>
+					</equals>
+					<greater-than>
+						<property>systems/apu/n2</property>
+						<value>5</value>
+					</greater-than>
+				</and>
+				<equals>
+					<property>controls/switches/annun-test</property>
+					<value>1</value>
+				</equals>
+			</or>
+		</condition>
+	</animation>
+
+</PropertyList>
