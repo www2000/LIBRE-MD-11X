@@ -54,7 +54,7 @@ along with this program.  If not, see <http://www.gnu.org/licenses/>.
 
  
 <effect>
-   <inherits-from>Aircraft/LIBRE-MD-11/Models/lights/ALS/beacon</inherits-from>
+   <inherits-from>Aircraft/LIBRE-MD-11X/Models/lights/ALS/beacon</inherits-from>
    <object-name>beaconals</object-name>
  </effect>
 

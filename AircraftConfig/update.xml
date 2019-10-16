@@ -151,7 +151,7 @@ along with this program.  If not, see <http://www.gnu.org/licenses/>.
 			<pref-width>220</pref-width>
 			<binding>
 				<command>open-browser</command>
-				<path>https://www.github.com/www2000/LIBRE-MD-11/archive/master.zip</path>
+				<path>https://www.github.com/www2000/LIBRE-MD-11X/archive/master.zip</path>
 			</binding>
 			<binding>
 				<command>exit</command>

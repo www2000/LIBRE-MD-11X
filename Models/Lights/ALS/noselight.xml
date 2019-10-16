@@ -25,7 +25,7 @@ along with this program.  If not, see <http://www.gnu.org/licenses/>.
 
  
 <effect>
-   <inherits-from>Aircraft/LIBRE-MD-11/Models/lights/ALS/noselight</inherits-from>
+   <inherits-from>Aircraft/LIBRE-MD-11X/Models/lights/ALS/noselight</inherits-from>
    <object-name>landinglightals</object-name>
  </effect>
  

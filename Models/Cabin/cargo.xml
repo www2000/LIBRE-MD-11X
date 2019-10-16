@@ -22,7 +22,7 @@ along with this program.  If not, see <http://www.gnu.org/licenses/>.
 	<path>cargo_area.ac</path>
 	
 	<effect>
-		<inherits-from>Aircraft/LIBRE-MD-11/Models/Effects/engine</inherits-from>
+		<inherits-from>Aircraft/LIBRE-MD-11X/Models/Effects/engine</inherits-from>
 		<object-name>cargo.chrome</object-name>
 	</effect>
 

@@ -110,7 +110,7 @@ along with this program.  If not, see <http://www.gnu.org/licenses/>.
 	<!-- Strobe Left-->
 	
 	 <model>
-		<path>Aircraft/LIBRE-MD-11/Models/Lights/ALS/left-strobe.xml</path>
+		<path>Aircraft/LIBRE-MD-11X/Models/Lights/ALS/left-strobe.xml</path>
 		<name>Strobelight.1ALS</name>
 		<offsets>
 			<x-m>12.8220</x-m>
@@ -120,7 +120,7 @@ along with this program.  If not, see <http://www.gnu.org/licenses/>.
     </model>
 	
     <model>
-		<path>Aircraft/LIBRE-MD-11/Models/Lights/whitelight.xml</path>
+		<path>Aircraft/LIBRE-MD-11X/Models/Lights/whitelight.xml</path>
 		<name>Strobelight.1</name>
 		<offsets>
 			<x-m>12.8220</x-m>
@@ -132,7 +132,7 @@ along with this program.  If not, see <http://www.gnu.org/licenses/>.
 	<!-- Strobe Right-->
 	
 	<model>
-		<path>Aircraft/LIBRE-MD-11/Models/Lights/ALS/right-strobe.xml</path>
+		<path>Aircraft/LIBRE-MD-11X/Models/Lights/ALS/right-strobe.xml</path>
 		<name>Strobelight.2ALS</name>
 		<offsets>
 			<x-m>12.8220</x-m>
@@ -142,7 +142,7 @@ along with this program.  If not, see <http://www.gnu.org/licenses/>.
     </model>
 
     <model>
-		<path>Aircraft/LIBRE-MD-11/Models/Lights/whitelight.xml</path>
+		<path>Aircraft/LIBRE-MD-11X/Models/Lights/whitelight.xml</path>
 		<name>Strobelight.2</name>
 		<offsets>
 			<x-m>12.8220</x-m>
@@ -154,7 +154,7 @@ along with this program.  If not, see <http://www.gnu.org/licenses/>.
 	<!-- Rear Nav Left-->
 	
 	 <model>
-		<path>Aircraft/LIBRE-MD-11/Models/Lights/ALS/tailnav.xml</path>
+		<path>Aircraft/LIBRE-MD-11X/Models/Lights/ALS/tailnav.xml</path>
 		<name>Rearnav.1ALS</name>
 		<offsets>
 			<x-m>15.4808</x-m>
@@ -164,7 +164,7 @@ along with this program.  If not, see <http://www.gnu.org/licenses/>.
     </model>
 	
     <model>
-		<path>Aircraft/LIBRE-MD-11/Models/Lights/whitelight.xml</path>
+		<path>Aircraft/LIBRE-MD-11X/Models/Lights/whitelight.xml</path>
 		<name>Rearnav.1</name>
 		<offsets>
 			<x-m>15.4808</x-m>
@@ -176,7 +176,7 @@ along with this program.  If not, see <http://www.gnu.org/licenses/>.
 	<!-- Rear Nav Right-->
 	
 	<model>
-		<path>Aircraft/LIBRE-MD-11/Models/Lights/ALS/tailnav.xml</path>
+		<path>Aircraft/LIBRE-MD-11X/Models/Lights/ALS/tailnav.xml</path>
 		<name>Rearnav.2ALS</name>
 		<offsets>
 			<x-m>15.4808</x-m>
@@ -186,7 +186,7 @@ along with this program.  If not, see <http://www.gnu.org/licenses/>.
     </model>
 
     <model>
-		<path>Aircraft/LIBRE-MD-11/Models/Lights/whitelight.xml</path>
+		<path>Aircraft/LIBRE-MD-11X/Models/Lights/whitelight.xml</path>
 		<name>Rearnav.2</name>
 		<offsets>
 			<x-m>15.4808</x-m>
@@ -198,7 +198,7 @@ along with this program.  If not, see <http://www.gnu.org/licenses/>.
 	<!-- Rear Left Strobe -->
 	
 	 <model>
-		<path>Aircraft/LIBRE-MD-11/Models/Lights/ALS/left-rear-strobe.xml</path>
+		<path>Aircraft/LIBRE-MD-11X/Models/Lights/ALS/left-rear-strobe.xml</path>
 		<name>Strobelight.3ALS</name>
 		<offsets>
 			<x-m>15.4808</x-m>
@@ -208,7 +208,7 @@ along with this program.  If not, see <http://www.gnu.org/licenses/>.
     </model>
 	
     <model>
-		<path>Aircraft/LIBRE-MD-11/Models/Lights/whitelight.xml</path>
+		<path>Aircraft/LIBRE-MD-11X/Models/Lights/whitelight.xml</path>
 		<name>Strobelight.3</name>
 		<offsets>
 			<x-m>15.4808</x-m>
@@ -220,7 +220,7 @@ along with this program.  If not, see <http://www.gnu.org/licenses/>.
 	<!-- Rear Right Strobe -->
 	
 	 <model>
-		<path>Aircraft/LIBRE-MD-11/Models/Lights/ALS/left-rear-strobe.xml</path>
+		<path>Aircraft/LIBRE-MD-11X/Models/Lights/ALS/left-rear-strobe.xml</path>
 		<name>Strobelight.4ALS</name>
 		<offsets>
 			<x-m>15.4808</x-m>
@@ -230,7 +230,7 @@ along with this program.  If not, see <http://www.gnu.org/licenses/>.
     </model>
 	
     <model>
-		<path>Aircraft/LIBRE-MD-11/Models/Lights/whitelight.xml</path>
+		<path>Aircraft/LIBRE-MD-11X/Models/Lights/whitelight.xml</path>
 		<name>Strobelight.4</name>
 		<offsets>
 			<x-m>15.4808</x-m>
@@ -255,7 +255,7 @@ along with this program.  If not, see <http://www.gnu.org/licenses/>.
 	<!-- Beacon light -->
 	
 	<model>
-		<path>Aircraft/LIBRE-MD-11/Models/Lights/ALS/beacon.xml</path>
+		<path>Aircraft/LIBRE-MD-11X/Models/Lights/ALS/beacon.xml</path>
 		<name>Beacon.LowerALS</name>
 		<offsets>
 			<x-m>14.2979</x-m>
@@ -266,7 +266,7 @@ along with this program.  If not, see <http://www.gnu.org/licenses/>.
     </model>
 	
     <model>
-		<path>Aircraft/LIBRE-MD-11/Models/Lights/beacon.xml</path>
+		<path>Aircraft/LIBRE-MD-11X/Models/Lights/beacon.xml</path>
 		<name>Beacon.Lower</name>
 		<offsets>
 			<x-m>14.2979</x-m>
@@ -277,7 +277,7 @@ along with this program.  If not, see <http://www.gnu.org/licenses/>.
     </model>
 	
 	<model>
-		<path>Aircraft/LIBRE-MD-11/Models/Lights/ALS/beacon.xml</path>
+		<path>Aircraft/LIBRE-MD-11X/Models/Lights/ALS/beacon.xml</path>
 		<name>Beacon.UpperALS</name>
 		<offsets>
 			<x-m>-4.1455</x-m>
@@ -287,7 +287,7 @@ along with this program.  If not, see <http://www.gnu.org/licenses/>.
     </model>
 
     <model>
-		<path>Aircraft/LIBRE-MD-11/Models/Lights/beacon.xml</path>
+		<path>Aircraft/LIBRE-MD-11X/Models/Lights/beacon.xml</path>
 		<name>Beacon.Upper</name>
 		<offsets>
 			<x-m>-4.1455</x-m>
