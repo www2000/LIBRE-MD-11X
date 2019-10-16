@@ -1,6 +1,19 @@
 # MD-11 JSB Engine System
 
 # Copyright (c) 2019 Joshua Davidson (Octal450)
+#
+# This program is free software: you can redistribute it and/or modify
+# it under the terms of the GNU General Public License as published by
+# the Free Software Foundation; either version 2 of the License, or
+# (at your option) any later version.
+#
+# This program is distributed in the hope that it will be useful,
+# but WITHOUT ANY WARRANTY; without even the implied warranty of
+# MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
+# GNU General Public License for more details.
+#
+# You should have received a copy of the GNU General Public License
+# along with this program.  If not, see <http://www.gnu.org/licenses/>.
 
 io.include("engines-b.nas");
 
@@ -78,7 +91,7 @@ var apu_start_loop = maketimer(0.5, func {
 		apu_start_loop.stop();
 		setprop("/controls/apu/on-light", 1);
 	}
-	
+
 	oilqty = getprop("/systems/apu/oilqty");
 	setprop("/systems/apu/oilqty", oilqty - 0.001);
 });
@@ -111,7 +124,7 @@ var toggleFastRevThrust = func {
 	var eng1thr = getprop("/controls/engines/engine[0]/throttle-pos");
 	var eng2thr = getprop("/controls/engines/engine[1]/throttle-pos");
 	var eng3thr = getprop("/controls/engines/engine[2]/throttle-pos");
-	if (eng1thr <= 0.05 and eng2thr <= 0.05 and eng3thr <= 0.05 and getprop("/controls/engines/engine[0]/reverser") == "0" and getprop("/controls/engines/engine[1]/reverser") == "0" and getprop("/controls/engines/engine[2]/reverser") == "0" 
+	if (eng1thr <= 0.05 and eng2thr <= 0.05 and eng3thr <= 0.05 and getprop("/controls/engines/engine[0]/reverser") == "0" and getprop("/controls/engines/engine[1]/reverser") == "0" and getprop("/controls/engines/engine[2]/reverser") == "0"
 	and getprop("/gear/gear[1]/wow") == 1 and getprop("/gear/gear[2]/wow") == 1) {
 		interpolate("/engines/engine[0]/reverser-pos-norm", 1, 1.4);
 		interpolate("/engines/engine[2]/reverser-pos-norm", 1, 1.4);
@@ -125,7 +138,7 @@ var toggleFastRevThrust = func {
 		setprop("/fdm/jsbsim/propulsion/engine[0]/reverser-angle-rad", 3.14);
 		setprop("/fdm/jsbsim/propulsion/engine[1]/reverser-angle-rad", 3.14);
 		setprop("/fdm/jsbsim/propulsion/engine[2]/reverser-angle-rad", 3.14);
-	} else if ((getprop("/controls/engines/engine[0]/reverser") == "1" or getprop("/controls/engines/engine[1]/reverser") == "1" or getprop("/controls/engines/engine[2]/reverser") == "0") and getprop("/gear/gear[1]/wow") == 1 
+	} else if ((getprop("/controls/engines/engine[0]/reverser") == "1" or getprop("/controls/engines/engine[1]/reverser") == "1" or getprop("/controls/engines/engine[2]/reverser") == "0") and getprop("/gear/gear[1]/wow") == 1
 	and getprop("/gear/gear[2]/wow") == 1) {
 		setprop("/controls/engines/engine[0]/throttle-rev", 0);
 		setprop("/controls/engines/engine[1]/throttle-rev", 0);
@@ -160,7 +173,7 @@ var doRevThrust = func {
 	var eng1thr = getprop("/controls/engines/engine[0]/throttle-pos");
 	var eng2thr = getprop("/controls/engines/engine[1]/throttle-pos");
 	var eng3thr = getprop("/controls/engines/engine[2]/throttle-pos");
-	if (eng1thr <= 0.05 and eng2thr <= 0.05 and eng3thr <= 0.05 and getprop("/controls/engines/engine[0]/reverser") == "0" and getprop("/controls/engines/engine[1]/reverser") == "0" and getprop("/controls/engines/engine[2]/reverser") == "0" 
+	if (eng1thr <= 0.05 and eng2thr <= 0.05 and eng3thr <= 0.05 and getprop("/controls/engines/engine[0]/reverser") == "0" and getprop("/controls/engines/engine[1]/reverser") == "0" and getprop("/controls/engines/engine[2]/reverser") == "0"
 	and getprop("/gear/gear[1]/wow") == 1 and getprop("/gear/gear[2]/wow") == 1) {
 		setprop("/controls/engines/engine[0]/throttle-rev", 0);
 		setprop("/controls/engines/engine[1]/throttle-rev", 0);

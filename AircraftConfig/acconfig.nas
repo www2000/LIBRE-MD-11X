@@ -1,5 +1,18 @@
 # Aircraft Config Center
 # Copyright (c) 2019 Joshua Davidson (Octal450)
+#
+# This program is free software: you can redistribute it and/or modify
+# it under the terms of the GNU General Public License as published by
+# the Free Software Foundation; either version 2 of the License, or
+# (at your option) any later version.
+#
+# This program is distributed in the hope that it will be useful,
+# but WITHOUT ANY WARRANTY; without even the implied warranty of
+# MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
+# GNU General Public License for more details.
+#
+# You should have received a copy of the GNU General Public License
+# along with this program.  If not, see <http://www.gnu.org/licenses/>.
 
 var spinning = maketimer(0.05, func {
 	var spinning = getprop("/systems/acconfig/spinning");
@@ -112,7 +125,7 @@ setlistener("/sim/signals/fdm-initialized", func {
 	if (getprop("/systems/acconfig/out-of-date") == 1) {
 		update_dlg.open();
 		print("System: The LIBRE-MD-11 is out of date!");
-	} 
+	}
 	mismatch_chk();
 	readSettings();
 	if (getprop("/systems/acconfig/out-of-date") != 1 and getprop("/systems/acconfig/options/revision") < current_revision and getprop("/systems/acconfig/mismatch-code") == "0x000") {
@@ -254,7 +267,7 @@ var beforestart = func {
 		setprop("/controls/flight/elevator-trim", -0.25);
 		libraries.systemsInit();
 		setprop("/controls/apu/start", 0);
-		
+
 		# Now the Startup!
 		setprop("/controls/electrical/switches/battery", 1);
 		setprop("/controls/electrical/switches/emer-pw-sw", 1);
@@ -316,7 +329,7 @@ var taxi = func {
 		setprop("/controls/flight/elevator-trim", -0.25);
 		libraries.systemsInit();
 		setprop("/controls/apu/start", 0);
-		
+
 		# Now the Startup!
 		setprop("/controls/electrical/switches/battery", 1);
 		setprop("/controls/electrical/switches/emer-pw-sw", 1);

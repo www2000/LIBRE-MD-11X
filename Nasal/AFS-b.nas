@@ -1,5 +1,18 @@
 # MD-11 AFS Interface
 # Copyright (c) 2019 Joshua Davidson (Octal450)
+#
+# This program is free software: you can redistribute it and/or modify
+# it under the terms of the GNU General Public License as published by
+# the Free Software Foundation; either version 2 of the License, or
+# (at your option) any later version.
+#
+# This program is distributed in the hope that it will be useful,
+# but WITHOUT ANY WARRANTY; without even the implied warranty of
+# MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
+# GNU General Public License for more details.
+#
+# You should have received a copy of the GNU General Public License
+# along with this program.  If not, see <http://www.gnu.org/licenses/>.
 
 var lat = "";
 var vert = "";
@@ -19,7 +32,7 @@ var loopFMA = maketimer(0.05, func {
 	vert = getprop("/it-autoflight/mode/vert");
 	thrustLimMode = getprop("/controls/engines/thrust-limit");
 	thr = getprop("/controls/engines/throttle-max");
-	
+
 	if (vert == "T/O CLB") {
 		if (getprop("/it-autoflight/output/athr") == 1 and getprop("/instrumentation/airspeed-indicator/indicated-speed-kt") < 80) {
 			if (thr >= 0.6) {
@@ -51,11 +64,11 @@ var loopFMA = maketimer(0.05, func {
 		stopThrottleReset = 0;
 		clamp = 0;
 	}
-	
+
 	if (getprop("/it-autoflight/output/clamp") != clamp) {
 		setprop("/it-autoflight/output/clamp", clamp);
 	}
-	
+
 	if (vert == "T/O CLB") {
 		if (clamp) {
 			clampFMA = 1;
@@ -69,7 +82,7 @@ var loopFMA = maketimer(0.05, func {
 	} else {
 		clampFMA = 0;
 	}
-	
+
 	if (vert == "SPD CLB" or vert == "T/O CLB") {
 		if (clampFMA) {
 			setprop("/modes/pfd/fma/pitch-mode", thrustLimMode ~ " CLAMP");

@@ -1,5 +1,18 @@
 # MD-11 Master System
 # Copyright (c) 2019 Joshua Davidson (Octal450)
+#
+# This program is free software: you can redistribute it and/or modify
+# it under the terms of the GNU General Public License as published by
+# the Free Software Foundation; either version 2 of the License, or
+# (at your option) any later version.
+#
+# This program is distributed in the hope that it will be useful,
+# but WITHOUT ANY WARRANTY; without even the implied warranty of
+# MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
+# GNU General Public License for more details.
+#
+# You should have received a copy of the GNU General Public License
+# along with this program.  If not, see <http://www.gnu.org/licenses/>.
 
 var FCTL = {
 	Fail: {
@@ -37,7 +50,7 @@ var FCTL = {
 		me.Switch.lsasRightIn.setBoolValue(1);
 		me.Switch.lsasRightOut.setBoolValue(1);
 		me.Switch.ydUpperA.setBoolValue(1);
-		me.Switch.ydUpperB.setBoolValue(1);	
+		me.Switch.ydUpperB.setBoolValue(1);
 		me.Switch.ydLowerA.setBoolValue(1);
 		me.Switch.ydLowerB.setBoolValue(1);
 	},
@@ -49,7 +62,7 @@ var FCTL = {
 		me.Fail.lsasRightIn.setBoolValue(0);
 		me.Fail.lsasRightOut.setBoolValue(0);
 		me.Fail.ydUpperA.setBoolValue(0);
-		me.Fail.ydUpperB.setBoolValue(0);	
+		me.Fail.ydUpperB.setBoolValue(0);
 		me.Fail.ydLowerA.setBoolValue(0);
 		me.Fail.ydLowerB.setBoolValue(0);
 	},

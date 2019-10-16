@@ -2,6 +2,19 @@
 # Joshua Davidson (Octal450)
 
 # Copyright (c) 2019 Joshua Davidson (Octal450)
+#
+# This program is free software: you can redistribute it and/or modify
+# it under the terms of the GNU General Public License as published by
+# the Free Software Foundation; either version 2 of the License, or
+# (at your option) any later version.
+#
+# This program is distributed in the hope that it will be useful,
+# but WITHOUT ANY WARRANTY; without even the implied warranty of
+# MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
+# GNU General Public License for more details.
+#
+# You should have received a copy of the GNU General Public License
+# along with this program.  If not, see <http://www.gnu.org/licenses/>.
 
 var knob = 0;
 var roll = 0;
@@ -43,7 +56,7 @@ var IRS = {
 		ac2 = getprop("/systems/electrical/bus/ac-2");
 		ac3 = getprop("/systems/electrical/bus/ac-3");
 		dcbat = getprop("/systems/electrical/bus/dc-bat");
-		
+
 		if (getprop("/controls/irs/skip") == 1) {
 			if (getprop("/controls/irs/align-time") != 5) {
 				setprop("/controls/irs/align-time", 5);
@@ -53,7 +66,7 @@ var IRS = {
 				setprop("/controls/irs/align-time", 600);
 			}
 		}
-		
+
 		if (gs > 5 or pitch > 5 or pitch < -5 or roll > 10 or roll < -10 or (ac1 < 110 and ac2 < 110 and dcbat < 25)) {
 			if (getprop("/controls/irs/ir[0]/align") == 1) {
 				me.stopAlign(0, 1);
@@ -65,7 +78,7 @@ var IRS = {
 				me.stopAlign(2, 1);
 			}
 		}
-		
+
 		if (ac1 >= 110 or ac2 >= 110 or ac3 >= 110) {
 			pwr_src = "AC";
 		} else if (dcbat >= 25 and (getprop("/controls/irs/ir[0]/knob") != 0 or getprop("/controls/irs/ir[1]/knob") != 0 or getprop("/controls/irs/ir[2]/knob") != 0)) {
@@ -73,12 +86,12 @@ var IRS = {
 		} else {
 			pwr_src = "XX";
 		}
-		
+
 		algnd1 = getprop("/instrumentation/irs/ir[0]/aligned");
 		algnd2 = getprop("/instrumentation/irs/ir[1]/aligned");
 		algnd3 = getprop("/instrumentation/irs/ir[2]/aligned");
 		hdg = math.round(getprop("/orientation/heading-magnetic-deg"));
-		
+
 		if (!algnd1 and !algnd2 and !algnd3 and setHDG != 1) {
 			setHDG = 1;
 		}
@@ -87,7 +100,7 @@ var IRS = {
 			setprop("/it-autoflight/custom/hdg-sel", hdg);
 			setprop("/it-autoflight/input/hdg", hdg);
 		}
-		
+
 		if (!algnd1 and !algnd2 and !algnd3 and getprop("/it-autoflight/output/lat") == 1) {
 			afs.ITAF.setLatMode(3);
 		} else if (!algnd1 and !algnd2 and !algnd3 and getprop("/it-autoflight/output/lnav-armed") == 1) {

@@ -1,6 +1,20 @@
 # MD-11 AFS
 # Based off IT-AUTOFLIGHT System Controller V4.0.X
 # Copyright (c) 2019 Joshua Davidson (Octal450)
+#
+# This program is free software: you can redistribute it and/or modify
+# it under the terms of the GNU General Public License as published by
+# the Free Software Foundation; either version 2 of the License, or
+# (at your option) any later version.
+#
+# This program is distributed in the hope that it will be useful,
+# but WITHOUT ANY WARRANTY; without even the implied warranty of
+# MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
+# GNU General Public License for more details.
+#
+# You should have received a copy of the GNU General Public License
+# along with this program.  If not, see <http://www.gnu.org/licenses/>.
+
 # This file DOES NOT integrate with Property Tree Setup
 # That way, we can update it from generic IT-AUTOFLIGHT easily
 
@@ -305,12 +319,12 @@ var ITAF = {
 	loop: func() {
 		Output.latTemp = Output.lat.getValue();
 		Output.vertTemp = Output.vert.getValue();
-		
+
 		# VOR/ILS Revision
 		if (Output.latTemp == 2 or Output.vertTemp == 2 or Output.vertTemp == 6) {
 			me.checkRadioRevision(Output.latTemp, Output.vertTemp);
 		}
-		
+
 		Gear.wow1Temp = Gear.wow1.getBoolValue();
 		Gear.wow2Temp = Gear.wow2.getBoolValue();
 		Output.ap1Temp = Output.ap1.getBoolValue();
@@ -322,7 +336,7 @@ var ITAF = {
 		Position.gearAglFtTemp = Position.gearAglFt.getValue();
 		Internal.vsTemp = Internal.vs.getValue();
 		Position.indicatedAltitudeFtTemp = Position.indicatedAltitudeFt.getValue();
-		
+
 		# Kill when power lost
 		if (systems.ELEC.Bus.dc1.getValue() < 25 or systems.ELEC.Bus.dc2.getValue() < 25 or systems.ELEC.Bus.dc3.getValue() < 25) {
 			if (Output.ap1Temp or Output.ap2Temp) {
@@ -332,22 +346,22 @@ var ITAF = {
 				me.killATSSilent();
 			}
 		}
-		
+
 		# LNAV Engagement
 		if (Output.lnavArm.getBoolValue()) {
 			me.checkLNAV(1);
 		}
-		
+
 		# VOR/LOC or ILS/LOC Capture
 		if (Output.locArm.getBoolValue()) {
 			me.checkLOC(1, 0);
 		}
-		
+
 		# G/S Capture
 		if (Output.apprArm.getBoolValue()) {
 			me.checkAPPR(1);
 		}
-		
+
 		# Autoland Logic
 		if (Output.latTemp == 2) {
 			if (Position.gearAglFtTemp <= 150) {
@@ -376,19 +390,19 @@ var ITAF = {
 				}
 			}
 		}
-		
+
 		# FLCH Engagement
 		if (Text.vertTemp == "T/O CLB") {
 			me.checkFLCH(Setting.reducAglFt.getValue());
 		}
-		
+
 		# Altitude Capture/Sync Logic
 		if (Output.vertTemp != 0) {
 			Internal.alt.setValue(Input.alt.getValue());
 		}
 		Internal.altTemp = Internal.alt.getValue();
 		Internal.altDiff = Internal.altTemp - Position.indicatedAltitudeFtTemp;
-		
+
 		if (Output.vertTemp != 0 and Output.vertTemp != 2 and Output.vertTemp != 6 and Text.vertTemp != "G/A CLB") {
 			Internal.captVS = math.clamp(math.round(abs(Internal.vs.getValue()) / 5, 100), 50, 2500); # Capture limits
 			if (abs(Internal.altDiff) <= Internal.captVS and !Gear.wow1Temp and !Gear.wow2Temp) {
@@ -399,7 +413,7 @@ var ITAF = {
 				}
 			}
 		}
-		
+
 		# Altitude Hold Min/Max Reset
 		if (Internal.altCaptureActive) {
 			if (abs(Internal.altDiff) <= 25) {
@@ -407,7 +421,7 @@ var ITAF = {
 				Text.vert.setValue("ALT HLD");
 			}
 		}
-		
+
 		# Altitude Alert
 		Text.vertTemp = Text.vert.getValue(); # We want it updated so that the sound doesn't play as wrong time
 		if (Output.vertTemp != 2 and Output.vertTemp != 6 and Misc.flapDeg.getValue() < 31.5) {
@@ -421,13 +435,13 @@ var ITAF = {
 		} else {
 			Internal.altAlert.setBoolValue(0);
 		}
-		
+
 		if (abs(Internal.altDiff) > 1050) {
 			Internal.altAlertAural.setBoolValue(1);
 		} else if (abs(Internal.altDiff) < 950 and !Internal.altAlert.getBoolValue()) {
 			Internal.altAlertAural.setBoolValue(0);
 		}
-		
+
 		# Thrust Mode Selector
 		if (Output.athrTemp and Output.vertTemp != 7 and Position.gearAglFt.getValue() <= 50 and Misc.flapDeg.getValue() >= 31.5) {
 			Output.thrMode.setValue(1);
@@ -459,7 +473,7 @@ var ITAF = {
 				Text.thr.setValue("THRUST");
 			}
 		}
-		
+
 		# Custom Stuff Below
 		# Speed Capture
 		if (Text.vertTemp != "T/O CLB") {
@@ -483,14 +497,14 @@ var ITAF = {
 		} else if (!Custom.Output.spdCaptured) {
 			Custom.Output.spdCaptured = 1;
 		}
-		
+
 		# Heading Sync
 		if (!Custom.showHdg.getBoolValue()) {
 			Misc.pfdHeadingScaleTemp = Misc.pfdHeadingScale.getValue();
 			Input.hdg.setValue(Misc.pfdHeadingScaleTemp);
 			Custom.hdgSel.setValue(Misc.pfdHeadingScaleTemp);
 		}
-		
+
 		# Heading Capture
 		if (Output.latTemp == 0) {
 			if (!Custom.Output.hdgCaptured) {
@@ -503,7 +517,7 @@ var ITAF = {
 		} else if (!Custom.Output.hdgCaptured) {
 			Custom.Output.hdgCaptured = 1;
 		}
-		
+
 		# Misc
 		if (Output.ap1Temp == 1 or Output.ap2Temp == 1) { # Trip AP off
 			if (abs(Controls.aileron.getValue()) >= 0.2 or abs(Controls.elevator.getValue()) >= 0.2) {
@@ -518,7 +532,7 @@ var ITAF = {
 		if (Output.athrTemp and Misc.state1.getValue() != 3 and Misc.state2.getValue() != 3 and Misc.state3.getValue() != 3) { # Trip A/THR off
 			me.athrMaster(0);
 		}
-		
+
 		# Dual Land Logic
 		if (Output.vertTemp == 2 or Output.vertTemp == 6) {
 			Radio.radioSel = Setting.useNAV2Radio.getBoolValue();
@@ -529,13 +543,13 @@ var ITAF = {
 			Custom.canAutoland = 0;
 		}
 		Custom.landModeActive = (Output.latTemp == 2 or Output.latTemp == 4) and (Output.vertTemp == 2 or Output.vertTemp == 6);
-		
+
 		if (Position.gearAglFtTemp <= 1500 and Custom.landModeActive) {
 			Custom.selfCheckStatus = 1;
 		} else if (!Custom.landModeActive) {
 			Custom.selfCheckStatus = 0;
 		}
-		
+
 		if (Custom.selfCheckStatus == 1) {
 			if (Custom.selfCheckStatus != 2 and Custom.selfCheckTime + 10 < Misc.elapsedSec.getValue()) {
 				Custom.selfCheckStatus = 2;
@@ -543,7 +557,7 @@ var ITAF = {
 		} else {
 			Custom.selfCheckTime = Misc.elapsedSec.getValue();
 		}
-		
+
 		if (Custom.canAutoland and Custom.landModeActive and Custom.selfCheckStatus == 2) {
 			if ((Output.ap1Temp or Output.ap2Temp) and !Custom.Input.ovrd1.getBoolValue() and !Custom.Input.ovrd2.getBoolValue()) {
 				Custom.landCondition = "DUAL";
@@ -555,7 +569,7 @@ var ITAF = {
 		} else {
 			Custom.landCondition = "OFF";
 		}
-		
+
 		if (Custom.landCondition != Custom.Text.land.getValue()) {
 			Custom.Text.land.setValue(Custom.landCondition);
 		}
@@ -566,7 +580,7 @@ var ITAF = {
 		FPLN.activeTemp = FPLN.active.getValue();
 		FPLN.currentWPTemp = FPLN.currentWP.getValue();
 		FPLN.numTemp = FPLN.num.getValue();
-		
+
 		# Bank Limit
 		if (Velocities.trueAirspeedKtTemp >= 420) {
 			Internal.bankLimitAuto = 15;
@@ -575,7 +589,7 @@ var ITAF = {
 		} else {
 			Internal.bankLimitAuto = 25;
 		}
-		
+
 		if (Input.bankLimitSWTemp == 0) {
 			Internal.bankLimit.setValue(Internal.bankLimitAuto);
 		} else if (Input.bankLimitSWTemp == 1) {
@@ -589,14 +603,14 @@ var ITAF = {
 		} else if (Input.bankLimitSWTemp == 5) {
 			Internal.bankLimit.setValue(25);
 		}
-		
+
 		# If in LNAV mode and route is not longer active, switch to HDG HLD
 		if (Output.lat.getValue() == 1) { # Only evaulate the rest of the condition if we are in LNAV mode
 			if (FPLN.num.getValue() == 0 or !FPLN.active.getBoolValue()) {
 				me.setLatMode(3);
 			}
 		}
-		
+
 		# Waypoint Advance Logic
 		if (FPLN.numTemp > 0 and FPLN.activeTemp == 1) {
 			if ((FPLN.currentWPTemp + 1) < FPLN.numTemp) {
@@ -630,7 +644,7 @@ var ITAF = {
 					FPLN.turnDist = 1;
 				}
 				Internal.lnavAdvanceNm.setValue(FPLN.turnDist);
-				
+
 				if (FPLN.wp0Dist.getValue() <= FPLN.turnDist) {
 					FPLN.currentWP.setValue(FPLN.currentWPTemp + 1);
 				}
@@ -688,7 +702,7 @@ var ITAF = {
 			if (Sound.enableApOff) {
 				Sound.apOff.setBoolValue(1);
 				Sound.enableApOff = 0;
-				apKill.start();	
+				apKill.start();
 			}
 			if (Text.vert.getValue() == "ROLLOUT") {
 				fms.CORE.resetFMS();
@@ -803,7 +817,7 @@ var ITAF = {
 			me.syncHDG();
 			Output.lnavArm.setBoolValue(0);
 			me.armTextCheck();
-		} 
+		}
 	},
 	setVertMode: func(n) {
 		Input.altDiff = Input.alt.getValue() - Position.indicatedAltitudeFt.getValue();
@@ -1109,7 +1123,7 @@ var ITAF = {
 		Custom.Input.ovrd1Temp = Custom.Input.ovrd1.getBoolValue();
 		Custom.Input.ovrd2Temp = Custom.Input.ovrd2.getBoolValue();
 		Custom.Internal.activeFMSTemp = Custom.Internal.activeFMS.getValue();
-		
+
 		if (!Gear.wow1.getBoolValue() and !Gear.wow2.getBoolValue()) {
 			if ((Output.ap1.getBoolValue() or Output.ap2.getBoolValue()) and Output.athr.getBoolValue()) { # Switch active FMS if there is nothing to engage
 				if (Custom.Internal.activeFMSTemp == 1 and !Custom.Input.ovrd2Temp) {
@@ -1137,7 +1151,7 @@ var ITAF = {
 		Output.ap2Temp = Output.ap2.getBoolValue();
 		Custom.Input.ovrd1Temp = Custom.Input.ovrd1.getBoolValue();
 		Custom.Input.ovrd2Temp = Custom.Input.ovrd2.getBoolValue();
-		
+
 		if (Custom.Input.ovrd1Temp and Custom.Input.ovrd2Temp) {
 			if (Output.ap1Temp) {
 				me.ap1Master(0);

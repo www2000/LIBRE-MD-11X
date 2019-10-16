@@ -1,5 +1,18 @@
 # McDonnell Douglas MD-11 Main Libraries
 # Copyright (c) 2019 Joshua Davidson (Octal450)
+#
+# This program is free software: you can redistribute it and/or modify
+# it under the terms of the GNU General Public License as published by
+# the Free Software Foundation; either version 2 of the License, or
+# (at your option) any later version.
+#
+# This program is distributed in the hope that it will be useful,
+# but WITHOUT ANY WARRANTY; without even the implied warranty of
+# MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
+# GNU General Public License for more details.
+#
+# You should have received a copy of the GNU General Public License
+# along with this program.  If not, see <http://www.gnu.org/licenses/>.
 
 print("-----------------------------------------------------------------------------");
 print("Copyright (c) 2017-2019 Joshua Davidson (Octal450)");
@@ -38,7 +51,7 @@ var systemsLoop = maketimer(0.1, func {
 	systems.IRS.loop();
 	systems.eng_loop();
 	fadec.fadecLoop();
-	
+
 	if ((pts.Velocities.groundspeedKt.getValue() >= 2) or !pts.Controls.Gear.brakeParking.getBoolValue()) {
 		if (systems.ELEC.Source.Ext.cart.getBoolValue() or systems.ELEC.Switch.extPwr.getBoolValue() or systems.ELEC.Switch.extGPwr.getBoolValue()) {
 			systems.ELEC.Source.Ext.cart.setBoolValue(0);
@@ -55,13 +68,13 @@ var systemsLoop = maketimer(0.1, func {
 	} else {
 		pts.Systems.Shake.effect.setBoolValue(0);
 	}
-	
+
 	if (pts.Sim.Replay.replayState.getBoolValue()) {
 		pts.Controls.Flight.wingflexEnable.setBoolValue(0);
 	} else {
 		pts.Controls.Flight.wingflexEnable.setBoolValue(1);
 	}
-	
+
 	if ((getprop("/engines/engine[0]/state") == 2 or getprop("/engines/engine[0]/state") == 3) and getprop("/fdm/jsbsim/propulsion/tank[8]/contents-lbs") < 1) {
 		systems.cutoff_one();
 	}
@@ -71,7 +84,7 @@ var systemsLoop = maketimer(0.1, func {
 	if ((getprop("/engines/engine[2]/state") == 2 or getprop("/engines/engine[2]/state") == 3) and getprop("/fdm/jsbsim/propulsion/tank[10]/contents-lbs") < 1) {
 		systems.cutoff_three();
 	}
-	
+
 	if (pts.Sim.Replay.replayState.getBoolValue()) {
 		pts.Sim.Replay.wasActive.setBoolValue(1);
 	} else if (!pts.Sim.Replay.replayState.getBoolValue() and pts.Sim.Replay.wasActive.getBoolValue()) {
@@ -144,7 +157,7 @@ var beacon = aircraft.light.new("/sim/model/lights/beacon", [0.1, 1], "/controls
 var lightsLoop = maketimer(0.2, func {
 	# Logo and navigation lights
 	setting = getprop("/controls/lighting/nav-lights");
-	
+
 	if (setting == 1) {
 		nav_lights.setBoolValue(1);
 	} else {

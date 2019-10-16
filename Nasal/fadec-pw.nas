@@ -1,6 +1,19 @@
 # MD-11 PW FADEC by Joshua Davidson (Octal450)
 
 # Copyright (c) 2019 Joshua Davidson (Octal450)
+#
+# This program is free software: you can redistribute it and/or modify
+# it under the terms of the GNU General Public License as published by
+# the Free Software Foundation; either version 2 of the License, or
+# (at your option) any later version.
+#
+# This program is distributed in the hope that it will be useful,
+# but WITHOUT ANY WARRANTY; without even the implied warranty of
+# MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
+# GNU General Public License for more details.
+#
+# You should have received a copy of the GNU General Public License
+# along with this program.  If not, see <http://www.gnu.org/licenses/>.
 
 setprop("/systems/fadec/eng1/epr", 0);
 setprop("/systems/fadec/eng1/egt", 0);
@@ -37,15 +50,15 @@ var fadecLoop2 = maketimer(0.7, func {
 	var N21 = getprop("/engines/engine[0]/n2-actual");
 	var N22 = getprop("/engines/engine[1]/n2-actual");
 	var N23 = getprop("/engines/engine[2]/n2-actual");
-	
+
 	if (getprop("/systems/electrical/outputs/efis") >= 15) {
 		setprop("/systems/fadec/power-avail", 1);
 	} else {
 		setprop("/systems/fadec/power-avail", 0);
 	}
-	
+
 	var powerAvail = getprop("/systems/fadec/power-avail");
-	
+
 	if (state1 == 3) {
 		setprop("/systems/fadec/powered1", 1);
 	} else if (powerAvail and N21 >= 1) {
@@ -53,7 +66,7 @@ var fadecLoop2 = maketimer(0.7, func {
 	} else {
 		setprop("/systems/fadec/powered1", 0);
 	}
-	
+
 	if (state2 == 3) {
 		setprop("/systems/fadec/powered2", 1);
 	} else if (powerAvail and N22 >= 1) {
@@ -61,7 +74,7 @@ var fadecLoop2 = maketimer(0.7, func {
 	} else {
 		setprop("/systems/fadec/powered2", 0);
 	}
-	
+
 	if (state3 == 3) {
 		setprop("/systems/fadec/powered3", 1);
 	} else if (powerAvail and N23 >= 1) {
@@ -69,11 +82,11 @@ var fadecLoop2 = maketimer(0.7, func {
 	} else {
 		setprop("/systems/fadec/powered3", 0);
 	}
-	
+
 	var powered1 = getprop("/systems/fadec/powered1");
 	var powered2 = getprop("/systems/fadec/powered2");
 	var powered3 = getprop("/systems/fadec/powered3");
-	
+
 	if (powered1) {
 		setprop("/systems/fadec/eng1/epr", 1);
 		setprop("/systems/fadec/eng1/n1", 1);
@@ -87,7 +100,7 @@ var fadecLoop2 = maketimer(0.7, func {
 		setprop("/systems/fadec/eng1/n2", 0);
 		setprop("/systems/fadec/eng1/ff", 0);
 	}
-	
+
 	if (powered2) {
 		setprop("/systems/fadec/eng2/epr", 1);
 		setprop("/systems/fadec/eng2/n1", 1);
@@ -101,7 +114,7 @@ var fadecLoop2 = maketimer(0.7, func {
 		setprop("/systems/fadec/eng2/n2", 0);
 		setprop("/systems/fadec/eng2/ff", 0);
 	}
-	
+
 	if (powered3) {
 		setprop("/systems/fadec/eng3/epr", 1);
 		setprop("/systems/fadec/eng3/n1", 1);

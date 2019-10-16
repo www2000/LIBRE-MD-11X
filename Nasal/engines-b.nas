@@ -1,6 +1,19 @@
 # MD-11 JSB Engine System
 
 # Copyright (c) 2019 Joshua Davidson (Octal450)
+#
+# This program is free software: you can redistribute it and/or modify
+# it under the terms of the GNU General Public License as published by
+# the Free Software Foundation; either version 2 of the License, or
+# (at your option) any later version.
+#
+# This program is distributed in the hope that it will be useful,
+# but WITHOUT ANY WARRANTY; without even the implied warranty of
+# MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
+# GNU General Public License for more details.
+#
+# You should have received a copy of the GNU General Public License
+# along with this program.  If not, see <http://www.gnu.org/licenses/>.
 
 var engines = props.globals.getNode("/engines").getChildren("engine");
 if (getprop("/options/eng") == "PW") {
@@ -50,7 +63,7 @@ var eng_loop = func {
 	state2 = getprop("/engines/engine[1]/state");
 	state3 = getprop("/engines/engine[2]/state");
 	wow0 = getprop("/gear/gear[0]/wow");
-	
+
 	if (getprop("/systems/electrical/bus/l-emer-ac") >= 110 and getprop("/controls/engines/ign-a") == 1) {
 		IGN1 = 1;
 		IGN2 = 1;
@@ -82,13 +95,13 @@ var eng_loop = func {
 			setprop("/controls/engines/ign-b-enabled", 0);
 		}
 	}
-	
+
 	if ((getprop("/controls/engines/thrust-limit") == "T/O" or getprop("/controls/engines/thrust-limit") == "G/A") and (thr1 >= 0.7 or thr2 >= 0.7)) {
 		IGNTOGA = 1;
 	} else {
 		IGNTOGA = 0;
 	}
-	
+
 	if (getprop("/controls/engines/ign-packs") != 1 and (getprop("/controls/engines/ign-a") == 1 or getprop("/controls/engines/ign-b") == 1) and (state1 != 3 or state2 != 3 or state3 != 3) and wow0 == 1) {
 		setprop("/controls/engines/ign-packs", 1);
 		setprop("/controls/engines/ign-packs-time", getprop("/sim/time/elapsed-sec"));
@@ -96,7 +109,7 @@ var eng_loop = func {
 		setprop("/controls/engines/ign-packs", 0);
 		setprop("/controls/engines/ign-packs-time", -1000)
 	}
-	
+
 	if (getprop("/controls/engines/ign-packs-time") + 120 >= getprop("/sim/time/elapsed-sec") and (state1 != 3 or state2 != 3 or state3 != 3) and wow0 == 1) {
 		setprop("/controls/engines/packs-off", 1);
 	} else if (IGNTOGA == 1) {
@@ -104,19 +117,19 @@ var eng_loop = func {
 	} else if (state1 != 1 and state2 != 1 and state3 != 1 and state1 != 2 and state2 != 2 and state3 != 2) {
 		setprop("/controls/engines/packs-off", 0);
 	}
-	
+
 	if ((getprop("/controls/engines/ign-ovrd") == 1 or state1 == 1 or (state1 == 2 and getprop("/engines/engine[0]/n2-actual") < 43.0) or IGNTOGA == 1) and IGN1 == 1) {
 		setprop("/controls/engines/ignition-1", 1);
 	} else {
 		setprop("/controls/engines/ignition-1", 0);
 	}
-	
+
 	if ((getprop("/controls/engines/ign-ovrd") == 1 or state2 == 1 or (state2 == 2 and getprop("/engines/engine[1]/n2-actual") < 43.0) or IGNTOGA == 1) and IGN2 == 1) {
 		setprop("/controls/engines/ignition-2", 1);
 	} else {
 		setprop("/controls/engines/ignition-2", 0);
 	}
-	
+
 	if ((getprop("/controls/engines/ign-ovrd") == 1 or state3 == 1 or (state3 == 2 and getprop("/engines/engine[2]/n2-actual") < 43.0) or IGNTOGA == 1) and IGN3 == 1) {
 		setprop("/controls/engines/ignition-3", 1);
 	} else {
@@ -164,7 +177,7 @@ var fast_start_one = func {
 	setprop("/engines/engine[0]/starter", 0);
 
 	setprop("/fdm/jsbsim/propulsion/set-running", 0);
-	
+
 	setprop("/engines/engine[0]/state", 3);
 }
 
@@ -220,7 +233,7 @@ var fast_start_two = func {
 	setprop("/engines/engine[1]/starter", 0);
 
 	setprop("/fdm/jsbsim/propulsion/set-running", 1);
-	
+
 	setprop("/engines/engine[1]/state", 3);
 }
 
@@ -276,7 +289,7 @@ var fast_start_three = func {
 	setprop("/engines/engine[2]/starter", 0);
 
 	setprop("/fdm/jsbsim/propulsion/set-running", 2);
-	
+
 	setprop("/engines/engine[2]/state", 3);
 }
 
