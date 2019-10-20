@@ -78,7 +78,7 @@ init_dlg.open();
 http.load("https://raw.githubusercontent.com/www2000/LIBRE-MD-11X/master/revision.txt").done(func(r) setprop("/systems/acconfig/new-revision", r.response));
 var revisionFile = (getprop("/sim/aircraft-dir") ~ "/revision.txt");
 var current_revision = io.readfile(revisionFile);
-print("IDG MD-11 Revision: " ~ current_revision);
+print("LIBRE MD-11 Revision: " ~ current_revision);
 setprop("/systems/acconfig/revision", current_revision);
 
 setlistener("/systems/acconfig/new-revision", func {

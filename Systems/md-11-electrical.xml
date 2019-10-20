@@ -19,7 +19,7 @@ along with this program.  If not, see <http://www.gnu.org/licenses/>.
 -->
 
 <system name="MD-11: Electrical">
-	
+
 	<property value="0">/systems/electrical/bus/ac-tie</property>
 	<property value="0">/systems/electrical/bus/dc-tie</property>
 	<property value="0">/systems/electrical/sources/ext/output-galley-volt</property>
@@ -34,9 +34,9 @@ along with this program.  If not, see <http://www.gnu.org/licenses/>.
 	<property value="0">/systems/electrical/relay/idg-ac-gen-3/contact-pos</property>
 	<property value="1">/systems/electrical/rcb/dc-tie-dc-2/command-pos</property>
 	<property value="1">/systems/electrical/rcb/dc-tie-dc-gndsvc/command-pos</property>
-	
+
 	<channel name="EPCU Switches/Logic" execrate="16">
-		
+
 		<switch name="/systems/electrical/epcu/allow-apu">
 			<default value="0"/>
 			<test logic="OR" value="1">
@@ -45,7 +45,7 @@ along with this program.  If not, see <http://www.gnu.org/licenses/>.
 				/systems/electrical/bus/ac-gen-3-src ne 1
 			</test>
 		</switch>
-		
+
 		<switch name="/systems/electrical/epcu/allow-ac-tie-1">
 			<default value="1"/>
 			<test logic="AND" value="0">
@@ -53,7 +53,7 @@ along with this program.  If not, see <http://www.gnu.org/licenses/>.
 				/systems/electrical/relay/apu-ac-gen-1/contact-pos eq 1
 			</test>
 		</switch>
-		
+
 		<switch name="/systems/electrical/epcu/allow-ac-tie-2">
 			<default value="1"/>
 			<test logic="AND" value="0">
@@ -61,7 +61,7 @@ along with this program.  If not, see <http://www.gnu.org/licenses/>.
 				/systems/electrical/relay/apu-ac-gen-2/contact-pos eq 1
 			</test>
 		</switch>
-		
+
 		<switch name="/systems/electrical/epcu/allow-ac-tie-3">
 			<default value="1"/>
 			<test logic="AND" value="0">
@@ -69,7 +69,7 @@ along with this program.  If not, see <http://www.gnu.org/licenses/>.
 				/systems/electrical/relay/apu-ac-gen-3/contact-pos eq 1
 			</test>
 		</switch>
-		
+
 		<switch name="/systems/electrical/epcu/ac-tie-1">
 			<default value="/controls/electrical/switches/ac-tie-1"/>
 			<test value="1">
@@ -80,7 +80,7 @@ along with this program.  If not, see <http://www.gnu.org/licenses/>.
 			</test>
 			<output>/controls/electrical/switches/ac-tie-1</output>
 		</switch>
-		
+
 		<switch name="/systems/electrical/epcu/ac-tie-2">
 			<default value="/controls/electrical/switches/ac-tie-2"/>
 			<test value="1">
@@ -91,7 +91,7 @@ along with this program.  If not, see <http://www.gnu.org/licenses/>.
 			</test>
 			<output>/controls/electrical/switches/ac-tie-2</output>
 		</switch>
-		
+
 		<switch name="/systems/electrical/epcu/ac-tie-3">
 			<default value="/controls/electrical/switches/ac-tie-3"/>
 			<test value="1">
@@ -102,7 +102,7 @@ along with this program.  If not, see <http://www.gnu.org/licenses/>.
 			</test>
 			<output>/controls/electrical/switches/ac-tie-3</output>
 		</switch>
-		
+
 		<switch name="/systems/electrical/epcu/apu-pwr">
 			<default value="/controls/electrical/switches/apu-pwr"/>
 			<test value="0">
@@ -110,7 +110,7 @@ along with this program.  If not, see <http://www.gnu.org/licenses/>.
 			</test>
 			<output>/controls/electrical/switches/apu-pwr</output>
 		</switch>
-		
+
 		<switch name="/systems/electrical/epcu/dc-tie-1">
 			<default value="/controls/electrical/switches/dc-tie-1"/>
 			<test value="1">
@@ -118,7 +118,7 @@ along with this program.  If not, see <http://www.gnu.org/licenses/>.
 			</test>
 			<output>/controls/electrical/switches/dc-tie-1</output>
 		</switch>
-		
+
 		<switch name="/systems/electrical/epcu/dc-tie-3">
 			<default value="/controls/electrical/switches/dc-tie-3"/>
 			<test value="1">
@@ -126,7 +126,7 @@ along with this program.  If not, see <http://www.gnu.org/licenses/>.
 			</test>
 			<output>/controls/electrical/switches/dc-tie-3</output>
 		</switch>
-		
+
 		<switch name="/systems/electrical/epcu/galley-1">
 			<default value="/controls/electrical/switches/galley-1"/>
 			<test value="1">
@@ -134,7 +134,7 @@ along with this program.  If not, see <http://www.gnu.org/licenses/>.
 			</test>
 			<output>/controls/electrical/switches/galley-1</output>
 		</switch>
-		
+
 		<switch name="/systems/electrical/epcu/galley-2">
 			<default value="/controls/electrical/switches/galley-2"/>
 			<test value="1">
@@ -142,7 +142,7 @@ along with this program.  If not, see <http://www.gnu.org/licenses/>.
 			</test>
 			<output>/controls/electrical/switches/galley-2</output>
 		</switch>
-		
+
 		<switch name="/systems/electrical/epcu/galley-3">
 			<default value="/controls/electrical/switches/galley-3"/>
 			<test value="1">
@@ -150,7 +150,7 @@ along with this program.  If not, see <http://www.gnu.org/licenses/>.
 			</test>
 			<output>/controls/electrical/switches/galley-3</output>
 		</switch>
-		
+
 		<switch name="/systems/electrical/epcu/gen-1">
 			<default value="/controls/electrical/switches/gen-1"/>
 			<test logic="AND" value="1">
@@ -163,7 +163,7 @@ along with this program.  If not, see <http://www.gnu.org/licenses/>.
 			</test>
 			<output>/controls/electrical/switches/gen-1</output>
 		</switch>
-		
+
 		<switch name="/systems/electrical/epcu/gen-2">
 			<default value="/controls/electrical/switches/gen-2"/>
 			<test logic="AND" value="1">
@@ -176,7 +176,7 @@ along with this program.  If not, see <http://www.gnu.org/licenses/>.
 			</test>
 			<output>/controls/electrical/switches/gen-2</output>
 		</switch>
-		
+
 		<switch name="/systems/electrical/epcu/gen-3">
 			<default value="/controls/electrical/switches/gen-3"/>
 			<test logic="AND" value="1">
@@ -189,11 +189,11 @@ along with this program.  If not, see <http://www.gnu.org/licenses/>.
 			</test>
 			<output>/controls/electrical/switches/gen-3</output>
 		</switch>
-	
+
 	</channel>
-	
+
 	<channel name="Main Electrical" execrate="8">
-		
+
 		<!-- Battery 1 -->
 		<fcs_function name="/systems/electrical/sources/bat-1/volt">
 			<function>
@@ -209,7 +209,7 @@ along with this program.  If not, see <http://www.gnu.org/licenses/>.
 				</table>
 			</function>
 		</fcs_function>
-		
+
 		<switch name="/systems/electrical/sources/bat-1/amp">
 			<default value="0"/>
 			<test logic="AND" value="2">
@@ -217,7 +217,7 @@ along with this program.  If not, see <http://www.gnu.org/licenses/>.
 				/systems/electrical/sources/bat-1/volt ge 10
 			</test>
 		</switch>
-		
+
 		<!-- Battery 2 -->
 		<fcs_function name="/systems/electrical/sources/bat-2/volt">
 			<function>
@@ -233,7 +233,7 @@ along with this program.  If not, see <http://www.gnu.org/licenses/>.
 				</table>
 			</function>
 		</fcs_function>
-		
+
 		<switch name="/systems/electrical/sources/bat-2/amp">
 			<default value="0"/>
 			<test logic="AND" value="2">
@@ -241,19 +241,19 @@ along with this program.  If not, see <http://www.gnu.org/licenses/>.
 				/systems/electrical/sources/bat-2/volt ge 10
 			</test>
 		</switch>
-		
-		<!-- IDG at 100% N2 9970RPM - unknown how accurate this is, CSD target is 8000RPM -->
-		<!-- IDG Engine 1 -->
+
+		<!-- LIBRE-MD-11X at 100% N2 9970RPM - unknown how accurate this is, CSD target is 8000RPM -->
+		<!-- LIBRE-MD-11X Engine 1 -->
 		<pure_gain name="/systems/electrical/sources/idg-1/drive-rpm-input">
 			<input>/engines/engine[0]/n2-actual</input>
 			<gain>59.82</gain>
 		</pure_gain>
-		
+
 		<pure_gain name="/systems/electrical/sources/idg-1/drive-rpm">
 			<input>/systems/electrical/sources/idg-1/drive-rpm-input</input>
 			<gain>/controls/electrical/switches/gen-drive-1</gain>
 		</pure_gain>
-		
+
 		<fcs_function name="/systems/electrical/sources/idg-1/csd-gearbox-ratio-cmd">
 			<function>
 				<quotient>
@@ -266,17 +266,17 @@ along with this program.  If not, see <http://www.gnu.org/licenses/>.
 				<max>2.8</max>
 			</clipto>
 		</fcs_function>
-		
+
 		<lag_filter name="/systems/electrical/sources/idg-1/csd-gearbox-ratio">
 			<input>/systems/electrical/sources/idg-1/csd-gearbox-ratio-cmd</input>
 			<c1>40</c1>
 		</lag_filter>
-		
+
 		<pure_gain name="/systems/electrical/sources/idg-1/csd-rpm">
 			<input>/systems/electrical/sources/idg-1/drive-rpm</input>
 			<gain>/systems/electrical/sources/idg-1/csd-gearbox-ratio</gain>
 		</pure_gain>
-		
+
 		<fcs_function name="/systems/electrical/sources/idg-1/pmg-volt">
 			<function>
 				<product>
@@ -288,7 +288,7 @@ along with this program.  If not, see <http://www.gnu.org/licenses/>.
 				</product>
 			</function>
 		</fcs_function>
-		
+
 		<fcs_function name="/systems/electrical/sources/idg-1/pmg-hertz">
 			<function>
 				<quotient>
@@ -300,7 +300,7 @@ along with this program.  If not, see <http://www.gnu.org/licenses/>.
 				</quotient>
 			</function>
 		</fcs_function>
-		
+
 		<switch name="/systems/electrical/sources/idg-1/gcr-relay">
 			<default value="0"/>
 			<test logic="AND" value="1">
@@ -309,28 +309,28 @@ along with this program.  If not, see <http://www.gnu.org/licenses/>.
 				/systems/electrical/sources/idg-1/csd-rpm ge 7650
 			</test>
 		</switch>
-		
+
 		<pure_gain name="/systems/electrical/sources/idg-1/output-volt">
 			<input>/systems/electrical/sources/idg-1/pmg-volt</input>
 			<gain>/systems/electrical/sources/idg-1/gcr-relay</gain>
 		</pure_gain>
-		
+
 		<pure_gain name="/systems/electrical/sources/idg-1/output-hertz">
 			<input>/systems/electrical/sources/idg-1/pmg-hertz</input>
 			<gain>/systems/electrical/sources/idg-1/gcr-relay</gain>
 		</pure_gain>
-		
-		<!-- IDG Engine 2 -->
+
+		<!-- LIBRE-MD-11X Engine 2 -->
 		<pure_gain name="/systems/electrical/sources/idg-2/drive-rpm-input">
 			<input>/engines/engine[1]/n2-actual</input>
 			<gain>59.82</gain>
 		</pure_gain>
-		
+
 		<pure_gain name="/systems/electrical/sources/idg-2/drive-rpm">
 			<input>/systems/electrical/sources/idg-2/drive-rpm-input</input>
 			<gain>/controls/electrical/switches/gen-drive-2</gain>
 		</pure_gain>
-		
+
 		<fcs_function name="/systems/electrical/sources/idg-2/csd-gearbox-ratio-cmd">
 			<function>
 				<quotient>
@@ -343,17 +343,17 @@ along with this program.  If not, see <http://www.gnu.org/licenses/>.
 				<max>2.8</max>
 			</clipto>
 		</fcs_function>
-		
+
 		<lag_filter name="/systems/electrical/sources/idg-2/csd-gearbox-ratio">
 			<input>/systems/electrical/sources/idg-2/csd-gearbox-ratio-cmd</input>
 			<c1>40</c1>
 		</lag_filter>
-		
+
 		<pure_gain name="/systems/electrical/sources/idg-2/csd-rpm">
 			<input>/systems/electrical/sources/idg-2/drive-rpm</input>
 			<gain>/systems/electrical/sources/idg-2/csd-gearbox-ratio</gain>
 		</pure_gain>
-		
+
 		<fcs_function name="/systems/electrical/sources/idg-2/pmg-volt">
 			<function>
 				<product>
@@ -365,7 +365,7 @@ along with this program.  If not, see <http://www.gnu.org/licenses/>.
 				</product>
 			</function>
 		</fcs_function>
-		
+
 		<fcs_function name="/systems/electrical/sources/idg-2/pmg-hertz">
 			<function>
 				<quotient>
@@ -377,7 +377,7 @@ along with this program.  If not, see <http://www.gnu.org/licenses/>.
 				</quotient>
 			</function>
 		</fcs_function>
-		
+
 		<switch name="/systems/electrical/sources/idg-2/gcr-relay">
 			<default value="0"/>
 			<test logic="AND" value="1">
@@ -386,28 +386,28 @@ along with this program.  If not, see <http://www.gnu.org/licenses/>.
 				/systems/electrical/sources/idg-2/csd-rpm ge 7650
 			</test>
 		</switch>
-		
+
 		<pure_gain name="/systems/electrical/sources/idg-2/output-volt">
 			<input>/systems/electrical/sources/idg-2/pmg-volt</input>
 			<gain>/systems/electrical/sources/idg-2/gcr-relay</gain>
 		</pure_gain>
-		
+
 		<pure_gain name="/systems/electrical/sources/idg-2/output-hertz">
 			<input>/systems/electrical/sources/idg-2/pmg-hertz</input>
 			<gain>/systems/electrical/sources/idg-2/gcr-relay</gain>
 		</pure_gain>
-		
-		<!-- IDG Engine 3 -->
+
+		<!-- LIBRE-MD-11X Engine 3 -->
 		<pure_gain name="/systems/electrical/sources/idg-3/drive-rpm-input">
 			<input>/engines/engine[2]/n2-actual</input>
 			<gain>59.82</gain>
 		</pure_gain>
-		
+
 		<pure_gain name="/systems/electrical/sources/idg-3/drive-rpm">
 			<input>/systems/electrical/sources/idg-3/drive-rpm-input</input>
 			<gain>/controls/electrical/switches/gen-drive-3</gain>
 		</pure_gain>
-		
+
 		<fcs_function name="/systems/electrical/sources/idg-3/csd-gearbox-ratio-cmd">
 			<function>
 				<quotient>
@@ -420,17 +420,17 @@ along with this program.  If not, see <http://www.gnu.org/licenses/>.
 				<max>2.8</max>
 			</clipto>
 		</fcs_function>
-		
+
 		<lag_filter name="/systems/electrical/sources/idg-3/csd-gearbox-ratio">
 			<input>/systems/electrical/sources/idg-3/csd-gearbox-ratio-cmd</input>
 			<c1>40</c1>
 		</lag_filter>
-		
+
 		<pure_gain name="/systems/electrical/sources/idg-3/csd-rpm">
 			<input>/systems/electrical/sources/idg-3/drive-rpm</input>
 			<gain>/systems/electrical/sources/idg-3/csd-gearbox-ratio</gain>
 		</pure_gain>
-		
+
 		<fcs_function name="/systems/electrical/sources/idg-3/pmg-volt">
 			<function>
 				<product>
@@ -442,7 +442,7 @@ along with this program.  If not, see <http://www.gnu.org/licenses/>.
 				</product>
 			</function>
 		</fcs_function>
-		
+
 		<fcs_function name="/systems/electrical/sources/idg-3/pmg-hertz">
 			<function>
 				<quotient>
@@ -454,7 +454,7 @@ along with this program.  If not, see <http://www.gnu.org/licenses/>.
 				</quotient>
 			</function>
 		</fcs_function>
-		
+
 		<switch name="/systems/electrical/sources/idg-3/gcr-relay">
 			<default value="0"/>
 			<test logic="AND" value="1">
@@ -463,17 +463,17 @@ along with this program.  If not, see <http://www.gnu.org/licenses/>.
 				/systems/electrical/sources/idg-3/csd-rpm ge 7650
 			</test>
 		</switch>
-		
+
 		<pure_gain name="/systems/electrical/sources/idg-3/output-volt">
 			<input>/systems/electrical/sources/idg-3/pmg-volt</input>
 			<gain>/systems/electrical/sources/idg-3/gcr-relay</gain>
 		</pure_gain>
-		
+
 		<pure_gain name="/systems/electrical/sources/idg-3/output-hertz">
 			<input>/systems/electrical/sources/idg-3/pmg-hertz</input>
 			<gain>/systems/electrical/sources/idg-3/gcr-relay</gain>
 		</pure_gain>
-		
+
 		<!-- APU Gen -->
 		<fcs_function name="/systems/electrical/sources/apu/output-volt">
 			<function>
@@ -493,7 +493,7 @@ along with this program.  If not, see <http://www.gnu.org/licenses/>.
 				</ifthen>
 			</function>
 		</fcs_function>
-		
+
 		<fcs_function name="/systems/electrical/sources/apu/output-hertz">
 			<function>
 				<ifthen>
@@ -506,7 +506,7 @@ along with this program.  If not, see <http://www.gnu.org/licenses/>.
 				</ifthen>
 			</function>
 		</fcs_function>
-		
+
 		<!-- External Power -->
 		<fcs_function name="/systems/electrical/sources/ext/output-volt">
 			<function>
@@ -521,7 +521,7 @@ along with this program.  If not, see <http://www.gnu.org/licenses/>.
 			</function>
 			<output>/systems/electrical/sources/ext/output-galley-volt</output>
 		</fcs_function>
-		
+
 		<fcs_function name="/systems/electrical/sources/ext/output-hertz">
 			<function>
 				<ifthen>
@@ -535,7 +535,7 @@ along with this program.  If not, see <http://www.gnu.org/licenses/>.
 			</function>
 			<output>/systems/electrical/sources/ext/output-galley-hertz</output>
 		</fcs_function>
-		
+
 		<!-- Air Driven Generator Power -->
 		<fcs_function name="/systems/electrical/sources/adg/output-volt">
 			<function>
@@ -555,7 +555,7 @@ along with this program.  If not, see <http://www.gnu.org/licenses/>.
 				</ifthen>
 			</function>
 		</fcs_function>
-		
+
 		<fcs_function name="/systems/electrical/sources/adg/output-hertz">
 			<function>
 				<ifthen>
@@ -568,15 +568,15 @@ along with this program.  If not, see <http://www.gnu.org/licenses/>.
 				</ifthen>
 			</function>
 		</fcs_function>
-		
-		<!-- IDG AC Gen Bus Relays -->
+
+		<!-- LIBRE-MD-11X AC Gen Bus Relays -->
 		<switch name="/systems/electrical/relay/idg-ac-gen-1/command-pos">
 			<default value="0"/>
 			<test value="1">
 				/controls/electrical/switches/gen-1 eq 1
 			</test>
 		</switch>
-		
+
 		<switch name="/systems/electrical/relay/idg-ac-gen-1/contact-pos">
 			<default value="0"/>
 			<test logic="AND" value="1">
@@ -584,21 +584,21 @@ along with this program.  If not, see <http://www.gnu.org/licenses/>.
 				/systems/electrical/sources/idg-1/output-volt ge 110
 			</test>
 		</switch>
-		
+
 		<switch name="/systems/electrical/relay/idg-ac-gen-1/output">
 			<default value="0"/>
 			<test value="/systems/electrical/sources/idg-1/output-volt">
 				/systems/electrical/relay/idg-ac-gen-1/contact-pos eq 1
 			</test>
 		</switch>
-		
+
 		<switch name="/systems/electrical/relay/idg-ac-gen-2/command-pos">
 			<default value="0"/>
 			<test value="1">
 				/controls/electrical/switches/gen-2 eq 1
 			</test>
 		</switch>
-		
+
 		<switch name="/systems/electrical/relay/idg-ac-gen-2/contact-pos">
 			<default value="0"/>
 			<test logic="AND" value="1">
@@ -606,21 +606,21 @@ along with this program.  If not, see <http://www.gnu.org/licenses/>.
 				/systems/electrical/sources/idg-2/output-volt ge 110
 			</test>
 		</switch>
-		
+
 		<switch name="/systems/electrical/relay/idg-ac-gen-2/output">
 			<default value="0"/>
 			<test value="/systems/electrical/sources/idg-2/output-volt">
 				/systems/electrical/relay/idg-ac-gen-2/contact-pos eq 1
 			</test>
 		</switch>
-		
+
 		<switch name="/systems/electrical/relay/idg-ac-gen-3/command-pos">
 			<default value="0"/>
 			<test value="1">
 				/controls/electrical/switches/gen-3 eq 1
 			</test>
 		</switch>
-		
+
 		<switch name="/systems/electrical/relay/idg-ac-gen-3/contact-pos">
 			<default value="0"/>
 			<test logic="AND" value="1">
@@ -628,14 +628,14 @@ along with this program.  If not, see <http://www.gnu.org/licenses/>.
 				/systems/electrical/sources/idg-3/output-volt ge 110
 			</test>
 		</switch>
-		
+
 		<switch name="/systems/electrical/relay/idg-ac-gen-3/output">
 			<default value="0"/>
 			<test value="/systems/electrical/sources/idg-3/output-volt">
 				/systems/electrical/relay/idg-ac-gen-3/contact-pos eq 1
 			</test>
 		</switch>
-		
+
 		<!-- APU AC Gen Bus Relays -->
 		<switch name="/systems/electrical/relay/apu-ac-gen-1/contact-pos">
 			<default value="0"/>
@@ -644,14 +644,14 @@ along with this program.  If not, see <http://www.gnu.org/licenses/>.
 				/systems/electrical/sources/apu/output-volt ge 110
 			</test>
 		</switch>
-		
+
 		<switch name="/systems/electrical/relay/apu-ac-gen-1/output">
 			<default value="0"/>
 			<test value="/systems/electrical/sources/apu/output-volt">
 				/systems/electrical/relay/apu-ac-gen-1/contact-pos eq 1
 			</test>
 		</switch>
-		
+
 		<switch name="/systems/electrical/relay/apu-ac-gen-2/contact-pos">
 			<default value="0"/>
 			<test logic="AND" value="1">
@@ -659,14 +659,14 @@ along with this program.  If not, see <http://www.gnu.org/licenses/>.
 				/systems/electrical/sources/apu/output-volt ge 110
 			</test>
 		</switch>
-		
+
 		<switch name="/systems/electrical/relay/apu-ac-gen-2/output">
 			<default value="0"/>
 			<test value="/systems/electrical/sources/apu/output-volt">
 				/systems/electrical/relay/apu-ac-gen-2/contact-pos eq 1
 			</test>
 		</switch>
-		
+
 		<switch name="/systems/electrical/relay/apu-ac-gen-3/contact-pos">
 			<default value="0"/>
 			<test logic="AND" value="1">
@@ -674,14 +674,14 @@ along with this program.  If not, see <http://www.gnu.org/licenses/>.
 				/systems/electrical/sources/apu/output-volt ge 110
 			</test>
 		</switch>
-		
+
 		<switch name="/systems/electrical/relay/apu-ac-gen-3/output">
 			<default value="0"/>
 			<test value="/systems/electrical/sources/apu/output-volt">
 				/systems/electrical/relay/apu-ac-gen-3/contact-pos eq 1
 			</test>
 		</switch>
-		
+
 		<!-- AC Tie Bus AC Gen Bus Relays -->
 		<!-- These outputs are from the AC Tie Bus to the AC Gen Bus -->
 		<switch name="/systems/electrical/relay/ac-tie-ac-gen-1/contact-pos">
@@ -694,14 +694,14 @@ along with this program.  If not, see <http://www.gnu.org/licenses/>.
 				/controls/electrical/switches/ac-tie-1 eq 1
 			</test>
 		</switch>
-		
+
 		<switch name="/systems/electrical/relay/ac-tie-ac-gen-1/output">
 			<default value="0"/>
 			<test value="/systems/electrical/bus/ac-tie">
 				/systems/electrical/relay/ac-tie-ac-gen-1/contact-pos eq 1
 			</test>
 		</switch>
-		
+
 		<switch name="/systems/electrical/relay/ac-tie-ac-gen-2/contact-pos">
 			<default value="0"/>
 			<test logic="AND" value="0">
@@ -712,14 +712,14 @@ along with this program.  If not, see <http://www.gnu.org/licenses/>.
 				/controls/electrical/switches/ac-tie-2 eq 1
 			</test>
 		</switch>
-		
+
 		<switch name="/systems/electrical/relay/ac-tie-ac-gen-2/output">
 			<default value="0"/>
 			<test value="/systems/electrical/bus/ac-tie">
 				/systems/electrical/relay/ac-tie-ac-gen-2/contact-pos eq 1
 			</test>
 		</switch>
-		
+
 		<switch name="/systems/electrical/relay/ac-tie-ac-gen-3/contact-pos">
 			<default value="0"/>
 			<test logic="AND" value="0">
@@ -730,19 +730,19 @@ along with this program.  If not, see <http://www.gnu.org/licenses/>.
 				/controls/electrical/switches/ac-tie-3 eq 1
 			</test>
 		</switch>
-		
+
 		<switch name="/systems/electrical/relay/ac-tie-ac-gen-3/output">
 			<default value="0"/>
 			<test value="/systems/electrical/bus/ac-tie">
 				/systems/electrical/relay/ac-tie-ac-gen-3/contact-pos eq 1
 			</test>
 		</switch>
-		
+
 		<!-- AC 1 Bus/AC Gen 1 Bus -->
 		<switch name="/systems/electrical/bus/ac-gen-1-src">
 			<description>Tell which source is being used, so that the system cannot magically power itself using AC tie</description>
 			<default value="0"/> <!-- OFF -->
-			<test value="1"> <!-- IDG1 -->
+			<test value="1"> <!-- LIBRE-MD-11X 1 -->
 				/systems/electrical/relay/idg-ac-gen-1/contact-pos eq 1
 			</test>
 			<test value="2"> <!-- APU -->
@@ -752,7 +752,7 @@ along with this program.  If not, see <http://www.gnu.org/licenses/>.
 				/systems/electrical/relay/ac-tie-ac-gen-1/contact-pos eq 1
 			</test>
 		</switch>
-		
+
 		<fcs_function name="/systems/electrical/bus/ac-gen-1">
 			<function>
 				<max>
@@ -762,17 +762,17 @@ along with this program.  If not, see <http://www.gnu.org/licenses/>.
 				</max>
 			</function>
 		</fcs_function>
-		
+
 		<pure_gain name="/systems/electrical/bus/ac-1">
 			<input>/systems/electrical/bus/ac-gen-1</input>
 			<gain>1.0</gain>
 		</pure_gain>
-		
+
 		<!-- AC 2 Bus/AC Gen 2 Bus -->
 		<switch name="/systems/electrical/bus/ac-gen-2-src">
 			<description>Tell which source is being used, so that the system cannot magically power itself using AC tie</description>
 			<default value="0"/> <!-- OFF -->
-			<test value="1"> <!-- IDG1 -->
+			<test value="1"> <!-- LIBRE-MD-11X 1 -->
 				/systems/electrical/relay/idg-ac-gen-2/contact-pos eq 1
 			</test>
 			<test value="2"> <!-- APU -->
@@ -782,7 +782,7 @@ along with this program.  If not, see <http://www.gnu.org/licenses/>.
 				/systems/electrical/relay/ac-tie-ac-gen-2/contact-pos eq 1
 			</test>
 		</switch>
-		
+
 		<fcs_function name="/systems/electrical/bus/ac-gen-2">
 			<function>
 				<max>
@@ -792,17 +792,17 @@ along with this program.  If not, see <http://www.gnu.org/licenses/>.
 				</max>
 			</function>
 		</fcs_function>
-		
+
 		<pure_gain name="/systems/electrical/bus/ac-2">
 			<input>/systems/electrical/bus/ac-gen-2</input>
 			<gain>1.0</gain>
 		</pure_gain>
-		
+
 		<!-- AC 3 Bus/AC Gen 3 Bus -->
 		<switch name="/systems/electrical/bus/ac-gen-3-src">
 			<description>Tell which source is being used, so that the system cannot magically power itself using AC tie</description>
 			<default value="0"/> <!-- OFF -->
-			<test value="1"> <!-- IDG1 -->
+			<test value="1"> <!-- LIBRE-MD-11X 1 -->
 				/systems/electrical/relay/idg-ac-gen-3/contact-pos eq 1
 			</test>
 			<test value="2"> <!-- APU -->
@@ -812,7 +812,7 @@ along with this program.  If not, see <http://www.gnu.org/licenses/>.
 				/systems/electrical/relay/ac-tie-ac-gen-3/contact-pos eq 1
 			</test>
 		</switch>
-		
+
 		<fcs_function name="/systems/electrical/bus/ac-gen-3">
 			<function>
 				<max>
@@ -822,12 +822,12 @@ along with this program.  If not, see <http://www.gnu.org/licenses/>.
 				</max>
 			</function>
 		</fcs_function>
-		
+
 		<pure_gain name="/systems/electrical/bus/ac-3">
 			<input>/systems/electrical/bus/ac-gen-3</input>
 			<gain>1.0</gain>
 		</pure_gain>
-		
+
 		<!-- External Power Relays -->
 		<switch name="/systems/electrical/relay/ext-pwr/contact-pos">
 			<default value="0"/>
@@ -836,14 +836,14 @@ along with this program.  If not, see <http://www.gnu.org/licenses/>.
 				/systems/electrical/sources/ext/output-volt ge 110
 			</test>
 		</switch>
-		
+
 		<switch name="/systems/electrical/relay/ext-pwr/output">
 			<default value="0"/>
 			<test value="/systems/electrical/sources/ext/output-volt">
 				/systems/electrical/relay/ext-pwr/contact-pos eq 1
 			</test>
 		</switch>
-		
+
 		<switch name="/systems/electrical/relay/extg-pwr/contact-pos">
 			<default value="0"/>
 			<test logic="AND" value="1">
@@ -851,14 +851,14 @@ along with this program.  If not, see <http://www.gnu.org/licenses/>.
 				/systems/electrical/sources/ext/output-galley-volt ge 110
 			</test>
 		</switch>
-		
+
 		<switch name="/systems/electrical/relay/extg-pwr/output">
 			<default value="0"/>
 			<test value="/systems/electrical/sources/ext/output-galley-volt">
 				/systems/electrical/relay/extg-pwr/contact-pos eq 1
 			</test>
 		</switch>
-		
+
 		<!-- External Power AC Tie Bus Relay -->
 		<switch name="/systems/electrical/relay/ext-ac-tie/contact-pos">
 			<default value="0"/>
@@ -866,14 +866,14 @@ along with this program.  If not, see <http://www.gnu.org/licenses/>.
 				/controls/electrical/switches/ext-pwr eq 1
 			</test>
 		</switch>
-		
+
 		<switch name="/systems/electrical/relay/ext-ac-tie/output">
 			<default value="0"/>
 			<test value="/systems/electrical/relay/ext-pwr/output">
 				/systems/electrical/relay/ext-ac-tie/contact-pos eq 1
 			</test>
 		</switch>
-		
+
 		<!-- APU External Power AC Gen Bus Relays -->
 		<switch name="/systems/electrical/relay/apu-ext-ac-gndsvc/contact-pos-apu">
 			<default value="0"/>
@@ -882,14 +882,14 @@ along with this program.  If not, see <http://www.gnu.org/licenses/>.
 				/systems/electrical/sources/apu/output-volt ge 110
 			</test>
 		</switch>
-		
+
 		<switch name="/systems/electrical/relay/apu-ext-ac-gndsvc/output-apu">
 			<default value="0"/>
 			<test value="/systems/electrical/sources/apu/output-volt">
 				/systems/electrical/relay/apu-ext-ac-gndsvc/contact-pos-apu eq 1
 			</test>
 		</switch>
-		
+
 		<switch name="/systems/electrical/relay/apu-ext-ac-gndsvc/contact-pos-ext">
 			<default value="0"/>
 			<test logic="AND" value="1">
@@ -897,14 +897,14 @@ along with this program.  If not, see <http://www.gnu.org/licenses/>.
 				/systems/electrical/relay/ext-pwr/output ge 110
 			</test>
 		</switch>
-		
+
 		<switch name="/systems/electrical/relay/apu-ext-ac-gndsvc/output-ext">
 			<default value="0"/>
 			<test value="/systems/electrical/relay/ext-pwr/output">
 				/systems/electrical/relay/apu-ext-ac-gndsvc/contact-pos-ext eq 1
 			</test>
 		</switch>
-		
+
 		<fcs_function name="/systems/electrical/relay/apu-ext-ac-gndsvc/output">
 			<function>
 				<max>
@@ -913,7 +913,7 @@ along with this program.  If not, see <http://www.gnu.org/licenses/>.
 				</max>
 			</function>
 		</fcs_function>
-		
+
 		<!-- AC Tie Bus AC Gen Bus Relays (continued) -->
 		<!-- These outputs are from the AC Gen Bus to the AC Tie Bus -->
 		<switch name="/systems/electrical/relay/ac-tie-ac-gen-1/output-tie">
@@ -922,21 +922,21 @@ along with this program.  If not, see <http://www.gnu.org/licenses/>.
 				/systems/electrical/relay/ac-tie-ac-gen-1/contact-pos eq 1
 			</test>
 		</switch>
-		
+
 		<switch name="/systems/electrical/relay/ac-tie-ac-gen-2/output-tie">
 			<default value="0"/>
 			<test value="/systems/electrical/bus/ac-gen-2">
 				/systems/electrical/relay/ac-tie-ac-gen-2/contact-pos eq 1
 			</test>
 		</switch>
-		
+
 		<switch name="/systems/electrical/relay/ac-tie-ac-gen-3/output-tie">
 			<default value="0"/>
 			<test value="/systems/electrical/bus/ac-gen-3">
 				/systems/electrical/relay/ac-tie-ac-gen-3/contact-pos eq 1
 			</test>
 		</switch>
-		
+
 		<!-- AC Tie Bus -->
 		<switch name="/systems/electrical/bus/ac-tie">
 			<default value="0"/>
@@ -956,7 +956,7 @@ along with this program.  If not, see <http://www.gnu.org/licenses/>.
 				/systems/electrical/bus/ac-gen-3-src ne 3
 			</test>
 		</switch>
-		
+
 		<!-- AC Gen Bus 2 AC Ground Service Bus Relay -->
 		<switch name="/systems/electrical/relay/ac-gen-2-ac-gndsvc/contact-pos">
 			<default value="0"/>
@@ -964,14 +964,14 @@ along with this program.  If not, see <http://www.gnu.org/licenses/>.
 				/systems/electrical/bus/ac-gen-2 ge 110
 			</test>
 		</switch>
-		
+
 		<switch name="/systems/electrical/relay/ac-gen-2-ac-gndsvc/output">
 			<default value="0"/>
 			<test value="/systems/electrical/bus/ac-gen-2">
 				/systems/electrical/relay/ac-gen-2-ac-gndsvc/contact-pos eq 1
 			</test>
 		</switch>
-		
+
 		<!-- AC Ground Service Bus -->
 		<fcs_function name="/systems/electrical/bus/ac-gndsvc">
 			<function>
@@ -981,45 +981,45 @@ along with this program.  If not, see <http://www.gnu.org/licenses/>.
 				</max>
 			</function>
 		</fcs_function>
-		
+
 		<!-- Cabin AC Buses Passenger Varient -->
 		<pure_gain name="/systems/electrical/bus/cabin-ac-1">
 			<input>/systems/electrical/bus/ac-gen-1</input>
 			<gain>1.0</gain>
 		</pure_gain>
-		
+
 		<pure_gain name="/systems/electrical/bus/fwd-mid-cabin">
 			<input>/systems/electrical/bus/ac-gndsvc</input>
 			<gain>1.0</gain>
 		</pure_gain>
-		
+
 		<pure_gain name="/systems/electrical/bus/overwing-aft-cabin">
 			<input>/systems/electrical/bus/ac-gndsvc</input>
 			<gain>1.0</gain>
 		</pure_gain>
-		
+
 		<pure_gain name="/systems/electrical/bus/cabin-ac-3">
 			<input>/systems/electrical/bus/ac-gen-3</input>
 			<gain>1.0</gain>
 		</pure_gain>
-		
+
 		<!-- Cabin AC Buses Freighter Varient -->
 		<pure_gain name="/systems/electrical/bus/cabin-ac-f">
 			<input>/systems/electrical/bus/ac-gndsvc</input>
 			<gain>1.0</gain>
 		</pure_gain>
-		
+
 		<pure_gain name="/systems/electrical/bus/cargo-loading">
 			<input>/systems/electrical/bus/ac-gndsvc</input>
 			<gain>1.0</gain>
 		</pure_gain>
-		
+
 		<!-- Cabin AC Buses Common -->
 		<pure_gain name="/systems/electrical/bus/flt-comp-ac-gndsvc">
 			<input>/systems/electrical/bus/ac-gndsvc</input>
 			<gain>1.0</gain>
 		</pure_gain>
-		
+
 		<!-- Right Emergency AC Bus Relays -->
 		<switch name="/systems/electrical/relay/ac-gen-3-r-emer-ac/contact-pos">
 			<default value="0"/>
@@ -1027,14 +1027,14 @@ along with this program.  If not, see <http://www.gnu.org/licenses/>.
 				/systems/electrical/bus/ac-gen-3 ge 110
 			</test>
 		</switch>
-		
+
 		<switch name="/systems/electrical/relay/ac-gen-3-r-emer-ac/output">
 			<default value="0"/>
 			<test value="/systems/electrical/bus/ac-gen-3">
 				/systems/electrical/relay/ac-gen-3-r-emer-ac/contact-pos eq 1
 			</test>
 		</switch>
-		
+
 		<switch name="/systems/electrical/relay/adg-r-emer-ac/contact-pos">
 			<default value="0"/>
 			<test logic="AND" value="1">
@@ -1042,14 +1042,14 @@ along with this program.  If not, see <http://www.gnu.org/licenses/>.
 				/systems/electrical/sources/adg/output-volt ge 110
 			</test>
 		</switch>
-		
+
 		<switch name="/systems/electrical/relay/adg-r-emer-ac/output">
 			<default value="0"/>
 			<test value="/systems/electrical/sources/adg/output-volt">
 				/systems/electrical/relay/adg-r-emer-ac/contact-pos eq 1
 			</test>
 		</switch>
-		
+
 		<!-- Right Emergency AC Bus -->
 		<switch name="/systems/electrical/bus/r-emer-ac-src">
 			<description>Tell which source is being used, so that the TR 3 DC 3 RCB can not allow DC 3 bus in ADG ELEC mode</description>
@@ -1061,7 +1061,7 @@ along with this program.  If not, see <http://www.gnu.org/licenses/>.
 				/systems/electrical/relay/adg-r-emer-ac/output ge 110
 			</test>
 		</switch>
-		
+
 		<fcs_function name="/systems/electrical/bus/r-emer-ac">
 			<function>
 				<max>
@@ -1070,7 +1070,7 @@ along with this program.  If not, see <http://www.gnu.org/licenses/>.
 				</max>
 			</function>
 		</fcs_function>
-		
+
 		<!-- Transformer Rectifier Relays -->
 		<switch name="/systems/electrical/relay/ac-gen-1-tr-1/contact-pos">
 			<default value="0"/>
@@ -1078,62 +1078,62 @@ along with this program.  If not, see <http://www.gnu.org/licenses/>.
 				/systems/electrical/bus/ac-gen-1 ge 110
 			</test>
 		</switch>
-		
+
 		<switch name="/systems/electrical/relay/ac-gen-1-tr-1/output">
 			<default value="0"/>
 			<test value="/systems/electrical/bus/ac-gen-1">
 				/systems/electrical/relay/ac-gen-1-tr-1/contact-pos eq 1
 			</test>
 		</switch>
-		
+
 		<switch name="/systems/electrical/relay/ac-gen-2-tr-2a/contact-pos">
 			<default value="0"/>
 			<test value="1">
 				/systems/electrical/bus/ac-gen-2 ge 110
 			</test>
 		</switch>
-		
+
 		<switch name="/systems/electrical/relay/ac-gen-2-tr-2a/output">
 			<default value="0"/>
 			<test value="/systems/electrical/bus/ac-gen-2">
 				/systems/electrical/relay/ac-gen-2-tr-2a/contact-pos eq 1
 			</test>
 		</switch>
-		
+
 		<switch name="/systems/electrical/relay/ac-gndsvc-tr-2b/contact-pos">
 			<default value="0"/>
 			<test value="1">
 				/systems/electrical/bus/ac-gndsvc ge 110
 			</test>
 		</switch>
-		
+
 		<switch name="/systems/electrical/relay/ac-gndsvc-tr-2b/output">
 			<default value="0"/>
 			<test value="/systems/electrical/bus/ac-gndsvc">
 				/systems/electrical/relay/ac-gndsvc-tr-2b/contact-pos eq 1
 			</test>
 		</switch>
-		
+
 		<switch name="/systems/electrical/relay/r-emer-ac-tr-3/contact-pos">
 			<default value="0"/>
 			<test value="1">
 				/systems/electrical/bus/r-emer-ac ge 110
 			</test>
 		</switch>
-		
+
 		<switch name="/systems/electrical/relay/r-emer-ac-tr-3/output">
 			<default value="0"/>
 			<test value="/systems/electrical/bus/r-emer-ac">
 				/systems/electrical/relay/r-emer-ac-tr-3/contact-pos eq 1
 			</test>
 		</switch>
-		
+
 		<!-- Transformer Rectifiers -->
 		<pure_gain name="/systems/electrical/sources/tr-1/output-volt">
 			<input>/systems/electrical/relay/ac-gen-1-tr-1/output</input>
 			<gain>0.24347826086956523</gain> <!-- AC to DC converter -->
 		</pure_gain>
-		
+
 		<fcs_function name="/systems/electrical/sources/tr-1/output-amp">
 			<function>
 				<table>
@@ -1145,12 +1145,12 @@ along with this program.  If not, see <http://www.gnu.org/licenses/>.
 				</table>
 			</function>
 		</fcs_function>
-		
+
 		<pure_gain name="/systems/electrical/sources/tr-2a/output-volt">
 			<input>/systems/electrical/relay/ac-gen-2-tr-2a/output</input>
 			<gain>0.24347826086956523</gain> <!-- AC to DC converter -->
 		</pure_gain>
-		
+
 		<fcs_function name="/systems/electrical/sources/tr-2a/output-amp">
 			<function>
 				<table>
@@ -1162,12 +1162,12 @@ along with this program.  If not, see <http://www.gnu.org/licenses/>.
 				</table>
 			</function>
 		</fcs_function>
-		
+
 		<pure_gain name="/systems/electrical/sources/tr-2b/output-volt">
 			<input>/systems/electrical/relay/ac-gndsvc-tr-2b/output</input>
 			<gain>0.24347826086956523</gain> <!-- AC to DC converter -->
 		</pure_gain>
-		
+
 		<fcs_function name="/systems/electrical/sources/tr-2b/output-amp">
 			<function>
 				<table>
@@ -1179,12 +1179,12 @@ along with this program.  If not, see <http://www.gnu.org/licenses/>.
 				</table>
 			</function>
 		</fcs_function>
-		
+
 		<pure_gain name="/systems/electrical/sources/tr-3/output-volt">
 			<input>/systems/electrical/relay/r-emer-ac-tr-3/output</input>
 			<gain>0.24347826086956523</gain> <!-- AC to DC converter -->
 		</pure_gain>
-		
+
 		<fcs_function name="/systems/electrical/sources/tr-3/output-amp">
 			<function>
 				<table>
@@ -1196,13 +1196,13 @@ along with this program.  If not, see <http://www.gnu.org/licenses/>.
 				</table>
 			</function>
 		</fcs_function>
-		
+
 		<!-- Cabin DC Bus -->
 		<pure_gain name="/systems/electrical/bus/cabin-dc">
 			<input>/systems/electrical/sources/tr-3/output-volt</input>
 			<gain>1.0</gain>
 		</pure_gain>
-		
+
 		<!-- DC Tie Bus DC Bus Remote Circuit Breakers -->
 		<!-- These outputs are from the DC Tie Bus to the DC Gen Bus -->
 		<switch name="/systems/electrical/rcb/dc-tie-dc-1/contact-pos">
@@ -1211,56 +1211,56 @@ along with this program.  If not, see <http://www.gnu.org/licenses/>.
 				/controls/electrical/switches/dc-tie-1 eq 1
 			</test>
 		</switch>
-		
+
 		<switch name="/systems/electrical/rcb/dc-tie-dc-1/output">
 			<default value="0"/>
 			<test value="/systems/electrical/bus/dc-tie">
 				/systems/electrical/rcb/dc-tie-dc-1/contact-pos eq 1
 			</test>
 		</switch>
-		
+
 		<switch name="/systems/electrical/rcb/dc-tie-dc-2/contact-pos">
 			<default value="0"/>
 			<test value="1"> <!-- I don't know what triggers this, its a dummy -->
 				/systems/electrical/rcb/dc-tie-dc-2/command-pos eq 1
 			</test>
 		</switch>
-		
+
 		<switch name="/systems/electrical/rcb/dc-tie-dc-2/output">
 			<default value="0"/>
 			<test value="/systems/electrical/bus/dc-tie">
 				/systems/electrical/rcb/dc-tie-dc-2/contact-pos eq 1
 			</test>
 		</switch>
-		
+
 		<switch name="/systems/electrical/rcb/dc-tie-dc-gndsvc/contact-pos">
 			<default value="0"/>
 			<test value="1"> <!-- I don't know what triggers this, its a dummy -->
 				/systems/electrical/rcb/dc-tie-dc-gndsvc/command-pos eq 1
 			</test>
 		</switch>
-		
+
 		<switch name="/systems/electrical/rcb/dc-tie-dc-gndsvc/output">
 			<default value="0"/>
 			<test value="/systems/electrical/bus/dc-tie">
 				/systems/electrical/rcb/dc-tie-dc-gndsvc/contact-pos eq 1
 			</test>
 		</switch>
-		
+
 		<switch name="/systems/electrical/rcb/dc-tie-dc-3/contact-pos">
 			<default value="0"/>
 			<test logic="AND" value="1">
 				/controls/electrical/switches/dc-tie-3 eq 1
 			</test>
 		</switch>
-		
+
 		<switch name="/systems/electrical/rcb/dc-tie-dc-3/output">
 			<default value="0"/>
 			<test value="/systems/electrical/bus/dc-tie">
 				/systems/electrical/rcb/dc-tie-dc-3/contact-pos eq 1
 			</test>
 		</switch>
-		
+
 		<!-- TR 3 DC 3 Bus Remote Circuit Breaker -->
 		<switch name="/systems/electrical/rcb/tr-3-dc-3/contact-pos">
 			<default value="0"/>
@@ -1269,14 +1269,14 @@ along with this program.  If not, see <http://www.gnu.org/licenses/>.
 				/systems/electrical/bus/r-emer-ac-src eq 1
 			</test>
 		</switch>
-		
+
 		<switch name="/systems/electrical/rcb/tr-3-dc-3/output">
 			<default value="0"/>
 			<test value="/systems/electrical/sources/tr-3/output-volt">
 				/systems/electrical/rcb/tr-3-dc-3/contact-pos eq 1
 			</test>
 		</switch>
-		
+
 		<!-- DC 1 Bus -->
 		<switch name="/systems/electrical/bus/dc-1-src">
 			<description>Tell which source is being used, so that the system cannot magically power itself using DC tie</description>
@@ -1288,7 +1288,7 @@ along with this program.  If not, see <http://www.gnu.org/licenses/>.
 				/systems/electrical/rcb/dc-tie-dc-1/contact-pos eq 1
 			</test>
 		</switch>
-		
+
 		<fcs_function name="/systems/electrical/bus/dc-1">
 			<function>
 				<max>
@@ -1297,7 +1297,7 @@ along with this program.  If not, see <http://www.gnu.org/licenses/>.
 				</max>
 			</function>
 		</fcs_function>
-		
+
 		<!-- DC 2 Bus -->
 		<switch name="/systems/electrical/bus/dc-2-src">
 			<description>Tell which source is being used, so that the system cannot magically power itself using DC tie</description>
@@ -1309,7 +1309,7 @@ along with this program.  If not, see <http://www.gnu.org/licenses/>.
 				/systems/electrical/rcb/dc-tie-dc-2/contact-pos eq 1
 			</test>
 		</switch>
-		
+
 		<fcs_function name="/systems/electrical/bus/dc-2">
 			<function>
 				<max>
@@ -1318,7 +1318,7 @@ along with this program.  If not, see <http://www.gnu.org/licenses/>.
 				</max>
 			</function>
 		</fcs_function>
-		
+
 		<!-- DC Ground Service Bus -->
 		<switch name="/systems/electrical/bus/dc-gndsvc-src">
 			<default value="0"/> <!-- OFF -->
@@ -1329,7 +1329,7 @@ along with this program.  If not, see <http://www.gnu.org/licenses/>.
 				/systems/electrical/rcb/dc-tie-dc-gndsvc/contact-pos eq 1
 			</test>
 		</switch>
-		
+
 		<fcs_function name="/systems/electrical/bus/dc-gndsvc">
 			<function>
 				<max>
@@ -1338,7 +1338,7 @@ along with this program.  If not, see <http://www.gnu.org/licenses/>.
 				</max>
 			</function>
 		</fcs_function>
-		
+
 		<!-- DC 3 Bus -->
 		<switch name="/systems/electrical/bus/dc-3-src">
 			<description>Tell which source is being used, so that the system cannot magically power itself using DC tie</description>
@@ -1350,7 +1350,7 @@ along with this program.  If not, see <http://www.gnu.org/licenses/>.
 				/systems/electrical/rcb/dc-tie-dc-3/contact-pos eq 1
 			</test>
 		</switch>
-		
+
 		<fcs_function name="/systems/electrical/bus/dc-3">
 			<function>
 				<max>
@@ -1359,7 +1359,7 @@ along with this program.  If not, see <http://www.gnu.org/licenses/>.
 				</max>
 			</function>
 		</fcs_function>
-		
+
 		<!-- DC Tie Bus DC Bus Remote Circuit Breakers (continued) -->
 		<!-- These outputs are from the DC Bus to the DC Tie Bus -->
 		<switch name="/systems/electrical/rcb/dc-tie-dc-1/output-tie">
@@ -1368,28 +1368,28 @@ along with this program.  If not, see <http://www.gnu.org/licenses/>.
 				/systems/electrical/rcb/dc-tie-dc-1/contact-pos eq 1
 			</test>
 		</switch>
-		
+
 		<switch name="/systems/electrical/rcb/dc-tie-dc-2/output-tie">
 			<default value="0"/>
 			<test value="/systems/electrical/bus/dc-2">
 				/systems/electrical/rcb/dc-tie-dc-2/contact-pos eq 1
 			</test>
 		</switch>
-		
+
 		<switch name="/systems/electrical/rcb/dc-tie-dc-gndsvc/output-tie">
 			<default value="0"/>
 			<test value="/systems/electrical/bus/dc-gndsvc">
 				/systems/electrical/rcb/dc-tie-dc-gndsvc/contact-pos eq 1
 			</test>
 		</switch>
-		
+
 		<switch name="/systems/electrical/rcb/dc-tie-dc-3/output-tie">
 			<default value="0"/>
 			<test value="/systems/electrical/bus/dc-3">
 				/systems/electrical/rcb/dc-tie-dc-3/contact-pos eq 1
 			</test>
 		</switch>
-		
+
 		<!-- DC Tie Bus -->
 		<switch name="/systems/electrical/bus/dc-tie">
 			<default value="0"/>
@@ -1410,7 +1410,7 @@ along with this program.  If not, see <http://www.gnu.org/licenses/>.
 				/systems/electrical/bus/dc-3-src ne 2
 			</test>
 		</switch>
-		
+
 		<!-- Left Emergency DC Bus/Battery DC Bus Shared ADG ELEC Switch -->
 		<!-- I am pretty sure this switch mechanically connects them, in case of power failure from battery -->
 		<switch name="/systems/electrical/sources/tr-3/output-volt-adg-switched">
@@ -1419,7 +1419,7 @@ along with this program.  If not, see <http://www.gnu.org/licenses/>.
 				/controls/electrical/switches/adg-elec eq 1
 			</test>
 		</switch>
-		
+
 		<!-- Battery Bus/Battery Direct Bus -->
 		<fcs_function name="/systems/electrical/bus/dc-bat-direct">
 			<function>
@@ -1429,7 +1429,7 @@ along with this program.  If not, see <http://www.gnu.org/licenses/>.
 				</max>
 			</function>
 		</fcs_function>
-		
+
 		<scheduled_gain name="/systems/electrical/bus/dc-bat-direct-regulator">
 			<description>Battery Voltage Step Down/Up (Buck/Boost) Regulator</description>
 			<input>/systems/electrical/bus/dc-bat-direct</input>
@@ -1453,7 +1453,7 @@ along with this program.  If not, see <http://www.gnu.org/licenses/>.
 				</tableData>
 			</table>
 		</scheduled_gain>
-		
+
 		<fcs_function name="/systems/electrical/bus/dc-bat">
 			<function>
 				<max>
@@ -1464,7 +1464,7 @@ along with this program.  If not, see <http://www.gnu.org/licenses/>.
 				</max>
 			</function>
 		</fcs_function>
-		
+
 		<!-- Left Emergency DC Bus Remote Circuit Breaker -->
 		<switch name="/systems/electrical/rcb/dc-bat-l-emer-dc/command-pos">
 			<default value="0"/>
@@ -1476,7 +1476,7 @@ along with this program.  If not, see <http://www.gnu.org/licenses/>.
 				/systems/electrical/bus/dc-1 lt 25
 			</test>
 		</switch>
-		
+
 		<switch name="/systems/electrical/rcb/dc-bat-l-emer-dc/contact-pos">
 			<default value="0"/>
 			<test logic="AND" value="1">
@@ -1484,14 +1484,14 @@ along with this program.  If not, see <http://www.gnu.org/licenses/>.
 				/systems/electrical/bus/dc-bat ge 25
 			</test>
 		</switch>
-		
+
 		<switch name="/systems/electrical/rcb/dc-bat-l-emer-dc/output">
 			<default value="0"/>
 			<test value="/systems/electrical/bus/dc-bat">
 				/systems/electrical/rcb/dc-bat-l-emer-dc/contact-pos eq 1
 			</test>
 		</switch>
-		
+
 		<!-- Left Emergency DC Bus -->
 		<fcs_function name="/systems/electrical/bus/l-emer-dc">
 			<function>
@@ -1503,7 +1503,7 @@ along with this program.  If not, see <http://www.gnu.org/licenses/>.
 				</max>
 			</function>
 		</fcs_function>
-		
+
 		<!-- Right Emergency DC Bus -->
 		<fcs_function name="/systems/electrical/bus/r-emer-dc">
 			<function>
@@ -1513,7 +1513,7 @@ along with this program.  If not, see <http://www.gnu.org/licenses/>.
 				</max>
 			</function>
 		</fcs_function>
-		
+
 		<!-- Static Inverter -->
 		<fcs_function name="/systems/electrical/sources/si-1/output-volt">
 			<description>Static Inverter 1</description>
@@ -1528,7 +1528,7 @@ along with this program.  If not, see <http://www.gnu.org/licenses/>.
 				</table>
 			</function>
 		</fcs_function>
-		
+
 		<!-- Left Emergency AC Bus Relays -->
 		<switch name="/systems/electrical/relay/ac-gen-1-l-emer-ac/contact-pos">
 			<default value="0"/>
@@ -1536,14 +1536,14 @@ along with this program.  If not, see <http://www.gnu.org/licenses/>.
 				/systems/electrical/bus/ac-gen-1 ge 110
 			</test>
 		</switch>
-		
+
 		<switch name="/systems/electrical/relay/ac-gen-1-l-emer-ac/output">
 			<default value="0"/>
 			<test value="/systems/electrical/bus/ac-gen-1">
 				/systems/electrical/relay/ac-gen-1-l-emer-ac/contact-pos eq 1
 			</test>
 		</switch>
-		
+
 		<switch name="/systems/electrical/relay/si-1-l-emer-ac/command-pos">
 			<default value="0"/>
 			<test value="1"> <!-- ON -->
@@ -1554,7 +1554,7 @@ along with this program.  If not, see <http://www.gnu.org/licenses/>.
 				/systems/electrical/bus/ac-1 lt 110
 			</test>
 		</switch>
-		
+
 		<switch name="/systems/electrical/relay/si-1-l-emer-ac/contact-pos">
 			<default value="0"/>
 			<test logic="AND" value="1">
@@ -1562,14 +1562,14 @@ along with this program.  If not, see <http://www.gnu.org/licenses/>.
 				/systems/electrical/sources/si-1/output-volt ge 110
 			</test>
 		</switch>
-		
+
 		<switch name="/systems/electrical/relay/si-1-l-emer-ac/output">
 			<default value="0"/>
 			<test value="/systems/electrical/sources/si-1/output-volt">
 				/systems/electrical/relay/si-1-l-emer-ac/contact-pos eq 1
 			</test>
 		</switch>
-		
+
 		<!-- Left Emergency AC Bus -->
 		<fcs_function name="/systems/electrical/bus/l-emer-ac">
 			<function>
@@ -1580,7 +1580,7 @@ along with this program.  If not, see <http://www.gnu.org/licenses/>.
 				</max>
 			</function>
 		</fcs_function>
-		
+
 		<!-- Battery Charger Power Relay -->
 		<switch name="/systems/electrical/sources/bat-charger-powered">
 			<default value="0"/>
@@ -1589,7 +1589,7 @@ along with this program.  If not, see <http://www.gnu.org/licenses/>.
 				/systems/electrical/bus/r-emer-ac ge 110
 			</test>
 		</switch>
-		
+
 		<!-- Galley Bus Source Relays -->
 		<switch name="/systems/electrical/relay/ac-gen-ext-galley-1/contact-pos-ac-gen">
 			<default value="0"/>
@@ -1601,14 +1601,14 @@ along with this program.  If not, see <http://www.gnu.org/licenses/>.
 				/systems/electrical/bus/ac-gen-1 ge 110
 			</test>
 		</switch>
-		
+
 		<switch name="/systems/electrical/relay/ac-gen-ext-galley-1/output-ac-gen">
 			<default value="0"/>
 			<test value="/systems/electrical/bus/ac-gen-1">
 				/systems/electrical/relay/ac-gen-ext-galley-1/contact-pos-ac-gen eq 1
 			</test>
 		</switch>
-		
+
 		<switch name="/systems/electrical/relay/ac-gen-ext-galley-1/contact-pos-extg">
 			<default value="0"/>
 			<test logic="AND" value="1">
@@ -1616,14 +1616,14 @@ along with this program.  If not, see <http://www.gnu.org/licenses/>.
 				/systems/electrical/relay/ext-pwr/contact-pos eq 1
 			</test>
 		</switch>
-		
+
 		<switch name="/systems/electrical/relay/ac-gen-ext-galley-1/output-extg">
 			<default value="0"/>
 			<test value="/systems/electrical/relay/extg-pwr/output">
 				/systems/electrical/relay/ac-gen-ext-galley-1/contact-pos-extg eq 1
 			</test>
 		</switch>
-		
+
 		<fcs_function name="/systems/electrical/relay/ac-gen-ext-galley-1/output">
 			<function>
 				<max>
@@ -1632,7 +1632,7 @@ along with this program.  If not, see <http://www.gnu.org/licenses/>.
 				</max>
 			</function>
 		</fcs_function>
-		
+
 		<switch name="/systems/electrical/relay/ac-gen-ext-galley-2/contact-pos-ac-gen">
 			<default value="0"/>
 			<test logic="AND" value="0">
@@ -1643,14 +1643,14 @@ along with this program.  If not, see <http://www.gnu.org/licenses/>.
 				/systems/electrical/bus/ac-gen-2 ge 110
 			</test>
 		</switch>
-		
+
 		<switch name="/systems/electrical/relay/ac-gen-ext-galley-2/output-ac-gen">
 			<default value="0"/>
 			<test value="/systems/electrical/bus/ac-gen-2">
 				/systems/electrical/relay/ac-gen-ext-galley-2/contact-pos-ac-gen eq 1
 			</test>
 		</switch>
-		
+
 		<switch name="/systems/electrical/relay/ac-gen-ext-galley-2/contact-pos-extg">
 			<default value="0"/>
 			<test logic="AND" value="1">
@@ -1658,14 +1658,14 @@ along with this program.  If not, see <http://www.gnu.org/licenses/>.
 				/systems/electrical/relay/ext-pwr/contact-pos eq 1
 			</test>
 		</switch>
-		
+
 		<switch name="/systems/electrical/relay/ac-gen-ext-galley-2/output-extg">
 			<default value="0"/>
 			<test value="/systems/electrical/relay/extg-pwr/output">
 				/systems/electrical/relay/ac-gen-ext-galley-2/contact-pos-extg eq 1
 			</test>
 		</switch>
-		
+
 		<fcs_function name="/systems/electrical/relay/ac-gen-ext-galley-2/output">
 			<function>
 				<max>
@@ -1674,7 +1674,7 @@ along with this program.  If not, see <http://www.gnu.org/licenses/>.
 				</max>
 			</function>
 		</fcs_function>
-		
+
 		<switch name="/systems/electrical/relay/ac-gen-ext-galley-3/contact-pos-ac-gen">
 			<default value="0"/>
 			<test logic="AND" value="0">
@@ -1685,14 +1685,14 @@ along with this program.  If not, see <http://www.gnu.org/licenses/>.
 				/systems/electrical/bus/ac-gen-3 ge 110
 			</test>
 		</switch>
-		
+
 		<switch name="/systems/electrical/relay/ac-gen-ext-galley-3/output-ac-gen">
 			<default value="0"/>
 			<test value="/systems/electrical/bus/ac-gen-3">
 				/systems/electrical/relay/ac-gen-ext-galley-3/contact-pos-ac-gen eq 1
 			</test>
 		</switch>
-		
+
 		<switch name="/systems/electrical/relay/ac-gen-ext-galley-3/contact-pos-extg">
 			<default value="0"/>
 			<test logic="AND" value="1">
@@ -1700,14 +1700,14 @@ along with this program.  If not, see <http://www.gnu.org/licenses/>.
 				/systems/electrical/relay/ext-pwr/contact-pos eq 1
 			</test>
 		</switch>
-		
+
 		<switch name="/systems/electrical/relay/ac-gen-ext-galley-3/output-extg">
 			<default value="0"/>
 			<test value="/systems/electrical/relay/extg-pwr/output">
 				/systems/electrical/relay/ac-gen-ext-galley-3/contact-pos-extg eq 1
 			</test>
 		</switch>
-		
+
 		<fcs_function name="/systems/electrical/relay/ac-gen-ext-galley-3/output">
 			<function>
 				<max>
@@ -1716,7 +1716,7 @@ along with this program.  If not, see <http://www.gnu.org/licenses/>.
 				</max>
 			</function>
 		</fcs_function>
-		
+
 		<!-- Galley Bus Relays -->
 		<switch name="/systems/electrical/relay/galley-1/contact-pos">
 			<default value="0"/>
@@ -1724,63 +1724,63 @@ along with this program.  If not, see <http://www.gnu.org/licenses/>.
 				/controls/electrical/switches/galley-1 eq 1
 			</test>
 		</switch>
-		
+
 		<switch name="/systems/electrical/relay/galley-1/output">
 			<default value="0"/>
 			<test value="/systems/electrical/relay/ac-gen-ext-galley-1/output">
 				/systems/electrical/relay/galley-1/contact-pos eq 1
 			</test>
 		</switch>
-		
+
 		<switch name="/systems/electrical/relay/galley-2/contact-pos">
 			<default value="0"/>
 			<test value="1">
 				/controls/electrical/switches/galley-2 eq 1
 			</test>
 		</switch>
-		
+
 		<switch name="/systems/electrical/relay/galley-2/output">
 			<default value="0"/>
 			<test value="/systems/electrical/relay/ac-gen-ext-galley-2/output">
 				/systems/electrical/relay/galley-2/contact-pos eq 1
 			</test>
 		</switch>
-		
+
 		<switch name="/systems/electrical/relay/galley-3/contact-pos">
 			<default value="0"/>
 			<test value="1">
 				/controls/electrical/switches/galley-3 eq 1
 			</test>
 		</switch>
-		
+
 		<switch name="/systems/electrical/relay/galley-3/output">
 			<default value="0"/>
 			<test value="/systems/electrical/relay/ac-gen-ext-galley-3/output">
 				/systems/electrical/relay/galley-3/contact-pos eq 1
 			</test>
 		</switch>
-		
+
 		<!-- Galley Buses -->
 		<pure_gain name="/systems/electrical/bus/galley-1">
 			<input>/systems/electrical/relay/galley-1/output</input>
 			<gain>1.0</gain>
 		</pure_gain>
-		
+
 		<pure_gain name="/systems/electrical/bus/galley-2">
 			<input>/systems/electrical/relay/galley-2/output</input>
 			<gain>1.0</gain>
 		</pure_gain>
-		
+
 		<pure_gain name="/systems/electrical/bus/galley-3">
 			<input>/systems/electrical/relay/galley-3/output</input>
 			<gain>1.0</gain>
 		</pure_gain>
-		
+
 		<pure_gain name="/systems/electrical/bus/galley-4">
 			<input>/systems/electrical/bus/ac-gen-3</input>
 			<gain>1.0</gain>
 		</pure_gain>
-		
+
 		<!-- Output to Generics to keep FG things working, temporary, until we know what gets power by what bus -->
 		<switch name="/systems/electrical/generic-pwr">
 			<description>This makes the FG stuff work because we killed the generic electrical</description>
@@ -1811,7 +1811,7 @@ along with this program.  If not, see <http://www.gnu.org/licenses/>.
 			<output>/systems/electrical/outputs/transponder</output>
 			<output>/systems/electrical/outputs/turn-coordinator</output>
 		</switch>
-		
+
 		<!-- Lighting Power -->
 		<switch name="/controls/lighting/fcp-integ-norm">
 			<default value="0"/>
@@ -1819,7 +1819,7 @@ along with this program.  If not, see <http://www.gnu.org/licenses/>.
 				/systems/electrical/generic-pwr ge 25
 			</test>
 		</switch>
-		
+
 		<fcs_function name="/controls/lighting/fcp-lcd-integ-norm">
 			<function>
 				<table>
@@ -1831,21 +1831,21 @@ along with this program.  If not, see <http://www.gnu.org/licenses/>.
 				</table>
 			</function>
 		</fcs_function>
-		
+
 		<switch name="/controls/lighting/main-integ-norm">
 			<default value="0"/>
 			<test value="/controls/lighting/main-integ-knb">
 				/systems/electrical/generic-pwr ge 25
 			</test>
 		</switch>
-		
+
 		<switch name="/controls/lighting/overhead-integ-norm">
 			<default value="0"/>
 			<test value="/controls/lighting/overhead-integ-knb">
 				/systems/electrical/generic-pwr ge 25
 			</test>
 		</switch>
-		
+
 		<fcs_function name="/controls/lighting/overhead-lcd-integ-norm">
 			<function>
 				<table>
@@ -1857,18 +1857,18 @@ along with this program.  If not, see <http://www.gnu.org/licenses/>.
 				</table>
 			</function>
 		</fcs_function>
-	
+
 	</channel>
-	
+
 	<channel name="Overhead Lights" execrate="8">
-		
+
 		<switch name="/systems/electrical/light/emer-pw-off">
 			<default value="0"/>
 			<test value="1">
 				/controls/electrical/switches/emer-pw-sw eq 0
 			</test>
 		</switch>
-		
+
 		<switch name="/systems/electrical/light/emer-pw-on">
 			<default value="0"/>
 			<test logic="OR" value="1">
@@ -1876,98 +1876,98 @@ along with this program.  If not, see <http://www.gnu.org/licenses/>.
 				/systems/electrical/relay/si-1-l-emer-ac/command-pos eq 1
 			</test>
 		</switch>
-		
+
 		<switch name="/systems/electrical/light/bat-bus">
 			<default value="0"/>
 			<test value="1">
 				/systems/electrical/bus/dc-bat lt 25
 			</test>
 		</switch>
-		
+
 		<switch name="/systems/electrical/light/l-emer-dc">
 			<default value="0"/>
 			<test value="1">
 				/systems/electrical/bus/l-emer-dc lt 25
 			</test>
 		</switch>
-		
+
 		<switch name="/systems/electrical/light/dc-1">
 			<default value="0"/>
 			<test value="1">
 				/systems/electrical/bus/dc-1 lt 25
 			</test>
 		</switch>
-		
+
 		<switch name="/systems/electrical/light/dc-2">
 			<default value="0"/>
 			<test value="1">
 				/systems/electrical/bus/dc-2 lt 25
 			</test>
 		</switch>
-		
+
 		<switch name="/systems/electrical/light/dc-gnd">
 			<default value="0"/>
 			<test value="1">
 				/systems/electrical/bus/dc-gndsvc lt 25
 			</test>
 		</switch>
-		
+
 		<switch name="/systems/electrical/light/dc-3">
 			<default value="0"/>
 			<test value="1">
 				/systems/electrical/bus/dc-3 lt 25
 			</test>
 		</switch>
-		
+
 		<switch name="/systems/electrical/light/r-emer-dc">
 			<default value="0"/>
 			<test value="1">
 				/systems/electrical/bus/r-emer-dc lt 25
 			</test>
 		</switch>
-		
+
 		<switch name="/systems/electrical/light/l-emer-ac">
 			<default value="0"/>
 			<test value="1">
 				/systems/electrical/bus/l-emer-ac lt 110
 			</test>
 		</switch>
-		
+
 		<switch name="/systems/electrical/light/ac-1">
 			<default value="0"/>
 			<test value="1">
 				/systems/electrical/bus/ac-1 lt 25
 			</test>
 		</switch>
-		
+
 		<switch name="/systems/electrical/light/ac-2">
 			<default value="0"/>
 			<test value="1">
 				/systems/electrical/bus/ac-2 lt 110
 			</test>
 		</switch>
-		
+
 		<switch name="/systems/electrical/light/ac-gnd">
 			<default value="0"/>
 			<test value="1">
 				/systems/electrical/bus/ac-gndsvc lt 110
 			</test>
 		</switch>
-		
+
 		<switch name="/systems/electrical/light/ac-3">
 			<default value="0"/>
 			<test value="1">
 				/systems/electrical/bus/ac-3 lt 110
 			</test>
 		</switch>
-		
+
 		<switch name="/systems/electrical/light/r-emer-ac">
 			<default value="0"/>
 			<test value="1">
 				/systems/electrical/bus/r-emer-ac lt 110
 			</test>
 		</switch>
-		
+
 		<switch name="/systems/electrical/light/ac-tie-1-arm">
 			<default value="0"/>
 			<test logic="AND" value="1">
@@ -1975,7 +1975,7 @@ along with this program.  If not, see <http://www.gnu.org/licenses/>.
 				/systems/electrical/relay/ac-tie-ac-gen-1/contact-pos ne 1
 			</test>
 		</switch>
-		
+
 		<switch name="/systems/electrical/light/ac-tie-2-arm">
 			<default value="0"/>
 			<test logic="AND" value="1">
@@ -1983,7 +1983,7 @@ along with this program.  If not, see <http://www.gnu.org/licenses/>.
 				/systems/electrical/relay/ac-tie-ac-gen-2/contact-pos ne 1
 			</test>
 		</switch>
-		
+
 		<switch name="/systems/electrical/light/ac-tie-3-arm">
 			<default value="0"/>
 			<test logic="AND" value="1">
@@ -1991,21 +1991,21 @@ along with this program.  If not, see <http://www.gnu.org/licenses/>.
 				/systems/electrical/relay/ac-tie-ac-gen-3/contact-pos ne 1
 			</test>
 		</switch>
-		
+
 		<switch name="/systems/electrical/light/ext-pwr-on">
 			<default value="0"/>
 			<test value="1">
 				/systems/electrical/relay/ext-ac-tie/contact-pos eq 1
 			</test>
 		</switch>
-		
+
 		<switch name="/systems/electrical/light/extg-pwr-on">
 			<default value="0"/>
 			<test value="1">
 				/systems/electrical/relay/extg-pwr/contact-pos eq 1
 			</test>
 		</switch>
-		
+
 		<switch name="/systems/electrical/light/gen-1-arm">
 			<default value="0"/>
 			<test logic="AND" value="1">
@@ -2013,7 +2013,7 @@ along with this program.  If not, see <http://www.gnu.org/licenses/>.
 				/systems/electrical/relay/idg-ac-gen-1/contact-pos ne 1
 			</test>
 		</switch>
-		
+
 		<switch name="/systems/electrical/light/gen-2-arm">
 			<default value="0"/>
 			<test logic="AND" value="1">
@@ -2021,7 +2021,7 @@ along with this program.  If not, see <http://www.gnu.org/licenses/>.
 				/systems/electrical/relay/idg-ac-gen-2/contact-pos ne 1
 			</test>
 		</switch>
-		
+
 		<switch name="/systems/electrical/light/gen-3-arm">
 			<default value="0"/>
 			<test logic="AND" value="1">
@@ -2029,28 +2029,28 @@ along with this program.  If not, see <http://www.gnu.org/licenses/>.
 				/systems/electrical/relay/idg-ac-gen-3/contact-pos ne 1
 			</test>
 		</switch>
-		
+
 		<switch name="/systems/electrical/light/galley-1">
 			<default value="0"/>
 			<test value="1">
 				/systems/electrical/bus/galley-1 lt 110
 			</test>
 		</switch>
-		
+
 		<switch name="/systems/electrical/light/galley-2">
 			<default value="0"/>
 			<test value="1">
 				/systems/electrical/bus/galley-2 lt 110
 			</test>
 		</switch>
-		
+
 		<switch name="/systems/electrical/light/galley-3">
 			<default value="0"/>
 			<test value="1">
 				/systems/electrical/bus/galley-3 lt 110
 			</test>
 		</switch>
-	
+
 	</channel>
 
 </system>

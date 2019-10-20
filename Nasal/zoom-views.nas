@@ -1,4 +1,4 @@
-# IDG Distance Zooming
+# LIBRE-MD-11X Distance Zooming
 # Copyright (c) 2019 Joshua Davidson (Octal450)
 #
 # This program is free software: you can redistribute it and/or modify

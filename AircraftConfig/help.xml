@@ -41,31 +41,31 @@ along with this program.  If not, see <http://www.gnu.org/licenses/>.
             </binding>
         </button>
     </group>
-	
+
     <hrule/>
-	
+
 	<group>
 		<layout>vbox</layout>
-		
+
 		<text>
 			<halign>left</halign>
 			<label>Information:</label>
 		</text>
-		
+
 		<text>
 			<halign>left</halign>
-			<label>IDG MD-11 Pre V1.0</label>
+			<label>LIBRE MD-11 Pre V1.0</label>
 		</text>
-		
+
 		<hrule/>
-		
+
 		<text>
 			<halign>left</halign>
 			<label>Keyboard Mode: Maps flight controls to number pad, and number rows, instead of view shortucts.</label>
 		</text>
-		
+
 		<hrule/>
-		
+
 		<text>
 			<halign>left</halign>
 			<label>Key Commands:</label>
@@ -126,7 +126,7 @@ along with this program.  If not, see <http://www.gnu.org/licenses/>.
 			<halign>left</halign>
 			<label>SHIFT + D - Disconnect Autopilot</label>
 		</text>
-		
+
 	</group>
-	
+
 </PropertyList>

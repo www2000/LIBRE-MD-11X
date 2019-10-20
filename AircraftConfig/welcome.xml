@@ -56,15 +56,15 @@ along with this program.  If not, see <http://www.gnu.org/licenses/>.
             </binding>
         </button>
     </group>
-	
+
     <hrule/>
-	
+
 	<group>
 		<layout>vbox</layout>
-		
+
 		<text>
 			<halign>center</halign>
-			<label>Welcome to the IDG MD-11!</label>
+			<label>Welcome to the LIBRE MD-11!</label>
 		</text>
 		<text>
 			<halign>center</halign>
@@ -78,14 +78,14 @@ along with this program.  If not, see <http://www.gnu.org/licenses/>.
 			<halign>center</halign>
 			<label>Development Has Stopped.</label>
 		</text>
-		
+
 	</group>
-	
+
 	<hrule/>
-	
+
 	<group>
 		<layout>hbox</layout>
-	
+
 		<checkbox>
 			<label>Do not show this screen at FlightGear startup</label>
 			<halign>center</halign>
@@ -105,14 +105,14 @@ along with this program.  If not, see <http://www.gnu.org/licenses/>.
 			</binding>
 			<live>true</live>
 		</checkbox>
-		
+
 	</group>
-	
+
 	<hrule/>
 
 	<group>
 		<layout>hbox</layout>
-		
+
 		<button>
 			<halign>center</halign>
 			<legend>Open A/C Config</legend>
@@ -136,5 +136,5 @@ along with this program.  If not, see <http://www.gnu.org/licenses/>.
 			</binding>
 		</button>
 	</group>
-	
+
 </PropertyList>
